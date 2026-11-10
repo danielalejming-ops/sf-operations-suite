@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SF ENTRETENIMIENTO, C.A. - ARCHIVO MAESTRO PARA BORDADO TEXTIL
+  Formato: Vectores matematicos limpios (Curvas de Bezier puras Didone)
+  Fondo: 100% Transparente (sin recuadros para no bordar parches)
+  Capas: Separadas por color de hilo (Oro y Platino)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328.09 235.89" width="100%" height="100%">
+  <defs>
+    <linearGradient id="hilo_oro_s" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0B3"/>
+      <stop offset="30%" stop-color="#D4AF37"/>
+      <stop offset="70%" stop-color="#AA8018"/>
+      <stop offset="100%" stop-color="#7D5807"/>
+    </linearGradient>
+    <linearGradient id="hilo_platino_f" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="30%" stop-color="#E2E8F0"/>
+      <stop offset="70%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- CAPA 1: LETRA S (HILO ORO IMPERIAL - MADEIRA 1070) -->
+  <g id="capa_1_hilo_oro_s" data-thread-name="Madeira Classic Rayon 1070 Gold">
+    <path d="M 74.40 210.89 Q 58.91 210.89 47.62 206.09 Q 36.38 201.29 28.80 192.89 L 17.62 209.80 L 13.57 209.80 L 13.57 160.49 L 18.22 160.49 Q 20.18 170.31 24.38 178.60 Q 28.57 186.89 35.21 193.00 Q 41.89 199.11 51.04 202.56 Q 60.22 205.97 72.22 205.97 Q 84.97 205.97 94.27 201.66 Q 103.58 197.31 108.60 189.10 Q 113.62 180.89 113.62 169.00 Q 113.62 158.43 108.45 151.19 Q 103.31 143.91 94.72 138.59 Q 86.17 133.23 75.97 128.73 Q 65.77 124.23 55.57 119.31 Q 45.38 114.40 36.79 107.88 Q 28.20 101.31 23.02 92.01 Q 17.89 82.71 17.89 69.40 Q 17.89 56.09 24.60 46.15 Q 31.31 36.18 42.64 30.59 Q 54.00 25.00 67.69 25.00 Q 79.58 25.00 89.51 28.79 Q 99.49 32.58 106.80 40.23 L 117.97 25.00 L 121.91 25.00 L 121.91 74.31 L 117.38 74.31 Q 114.97 59.31 108.38 49.56 Q 101.77 39.78 91.91 35.05 Q 82.09 30.29 69.97 30.29 Q 52.80 30.29 43.99 38.39 Q 35.17 46.49 35.17 59.80 Q 35.17 69.29 40.27 75.89 Q 45.38 82.49 53.77 87.48 Q 62.17 92.43 72.22 96.89 Q 82.31 101.31 92.40 106.41 Q 102.49 111.51 110.89 118.49 Q 119.29 125.43 124.39 135.32 Q 129.49 145.23 129.49 159.40 Q 129.49 175.00 122.74 186.59 Q 116.02 198.18 103.65 204.55 Q 91.31 210.89 74.40 210.89 Z" 
+          fill="url(#hilo_oro_s)" 
+          stroke="#8C6314" 
+          stroke-width="1.2" 
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- CAPA 2: LETRA F (HILO PLATINO / TITANIO - MADEIRA 1001) -->
+  <g id="capa_2_hilo_platino_f" data-thread-name="Madeira Classic Rayon 1001 Platinum">
+    <path d="M 237.29 143.09 Q 237.29 135.03 234.29 130.00 Q 231.29 124.98 224.72 122.58 Q 218.20 120.18 207.78 120.18 L 192.03 120.18 L 192.03 115.60 L 207.78 115.60 Q 218.20 115.60 224.72 113.58 Q 231.29 111.51 234.29 106.79 Q 237.29 102.03 237.29 94.00 L 242.09 94.00 L 242.09 143.09 L 237.29 143.09 Z M 278.09 27.40 L 278.09 76.60 L 273.40 76.60 Q 273.40 63.78 269.69 53.69 Q 265.98 43.60 257.61 37.86 Q 249.29 32.09 235.22 32.09 L 196.97 32.09 L 196.97 202.71 L 220.82 202.71 L 220.82 207.40 L 152.43 207.40 L 152.43 202.71 L 174.03 202.71 L 174.03 32.09 L 152.43 32.09 L 152.43 27.40 L 278.09 27.40 Z" 
+          fill="url(#hilo_platino_f)" 
+          stroke="#475569" 
+          stroke-width="1.2" 
+          stroke-linejoin="round"/>
+  </g>
+</svg>

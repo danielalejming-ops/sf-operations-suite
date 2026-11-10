@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgObsidian" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050507"/>
+      <stop offset="52%" stop-color="#0D080B"/>
+      <stop offset="85%" stop-color="#2A050D"/>
+      <stop offset="100%" stop-color="#060608"/>
+    </linearGradient>
+
+    <radialGradient id="rubyGlow" cx="50%" cy="42%" r="48%">
+      <stop offset="0%" stop-color="#6B091B" stop-opacity="0.42"/>
+      <stop offset="60%" stop-color="#2A040B" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="gold24k" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5D6"/>
+      <stop offset="22%" stop-color="#E8C674"/>
+      <stop offset="48%" stop-color="#B38328"/>
+      <stop offset="74%" stop-color="#F7DF9C"/>
+      <stop offset="100%" stop-color="#7B5412"/>
+    </linearGradient>
+
+    <linearGradient id="platinum" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="28%" stop-color="#D9DEE8"/>
+      <stop offset="55%" stop-color="#8A93A6"/>
+      <stop offset="80%" stop-color="#F2F5FA"/>
+      <stop offset="100%" stop-color="#5E6675"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000000" flood-opacity="0.85"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" rx="44" fill="url(#bgObsidian)"/>
+  <circle cx="400" cy="340" r="340" fill="url(#rubyGlow)"/>
+
+  <!-- Double Haute Horlogerie Frame -->
+  <rect x="34" y="34" width="732" height="732" rx="30" fill="none" stroke="url(#gold24k)" stroke-width="1.6" stroke-opacity="0.55"/>
+  <rect x="48" y="48" width="704" height="704" rx="22" fill="none" stroke="url(#gold24k)" stroke-width="0.7" stroke-opacity="0.25"/>
+
+  <!-- Top Star Emblem -->
+  <polygon points="400,96 406,114 424,120 406,126 400,144 394,126 376,120 394,114" fill="url(#gold24k)"/>
+  <line x1="270" y1="120" x2="365" y2="120" stroke="url(#gold24k)" stroke-width="1" stroke-opacity="0.45"/>
+  <line x1="435" y1="120" x2="530" y2="120" stroke="url(#gold24k)" stroke-width="1" stroke-opacity="0.45"/>
+
+  <!-- Classic Unmistakable Interlocking SF Monogram using High-Contrast Luxury Serif Typography -->
+  <g filter="url(#softShadow)">
+    <!-- Letter S in 24k Champagne Gold -->
+    <text x="335" y="445"
+          font-family="'Didot', 'Bodoni MT', 'Playfair Display', 'Times New Roman', serif"
+          font-size="310"
+          font-weight="700"
+          text-anchor="middle"
+          fill="url(#gold24k)"
+          stroke="#FFF6D6"
+          stroke-width="2"
+          stroke-opacity="0.6">S</text>
+
+    <!-- Letter F in Platinum Chrome & Gold Rim -->
+    <text x="475" y="445"
+          font-family="'Didot', 'Bodoni MT', 'Playfair Display', 'Times New Roman', serif"
+          font-size="310"
+          font-weight="700"
+          text-anchor="middle"
+          fill="url(#platinum)"
+          stroke="url(#gold24k)"
+          stroke-width="2.5"
+          stroke-opacity="0.85">F</text>
+  </g>
+
+  <!-- Golden Laser Divider -->
+  <line x1="160" y1="535" x2="640" y2="535" stroke="url(#gold24k)" stroke-width="2" stroke-opacity="0.8"/>
+  <polygon points="400,527 408,535 400,543 392,535" fill="url(#gold24k)"/>
+
+  <!-- Brand Name -->
+  <text x="400" y="605"
+        font-family="'Montserrat', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="36"
+        font-weight="700"
+        letter-spacing="14"
+        text-anchor="middle"
+        fill="url(#gold24k)">ENTRETENIMIENTO</text>
+
+  <text x="400" y="652"
+        font-family="'Montserrat', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="13"
+        font-weight="600"
+        letter-spacing="9"
+        text-anchor="middle"
+        fill="#D5DBE6"
+        opacity="0.8">PRODUCCIÓN DE EVENTOS VIP</text>
+</svg>

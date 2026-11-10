@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SF Entretenimiento | Expertos en Eventos de Alto Nivel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F3E5AB;
+            --bg-dark: #0D0F12;
+            --card-bg: #161A20;
+            --text-main: #FFFFFF;
+            --text-muted: #A0A5B0;
+            --whatsapp: #25D366;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 24px 16px 100px;
+        }
+        header {
+            text-align: center;
+            padding: 30px 10px 20px;
+        }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(212,175,55,0.05));
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, #FFFFFF, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+        .cities-pill {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .city-tag {
+            background: rgba(255,255,255,0.06);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #E2E8F0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 30px;
+            background: var(--card-bg);
+            padding: 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+        .stat-num {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--gold);
+        }
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin: 28px 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 18px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: transform 0.2s;
+        }
+        .service-icon {
+            font-size: 28px;
+            background: rgba(212,175,55,0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .service-info h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .service-info p {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(37,211,102,0.3);
+            margin: 25px 0 15px;
+            transition: all 0.2s;
+        }
+        .cta-btn:active {
+            transform: scale(0.98);
+        }
+        .fixed-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13,15,18,0.92);
+            backdrop-filter: blur(12px);
+            padding: 12px 16px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            z-index: 100;
+        }
+        .fixed-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .fixed-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="badge">Trayectoria & Excelencia</div>
+            <h1>SF Entretenimiento</h1>
+            <p class="subtitle">Más de 20 años transformando celebraciones en experiencias legendarias.</p>
+            <div class="cities-pill">
+                <span class="city-tag">📍 Valencia</span>
+                <span class="city-tag">📍 Maracay</span>
+                <span class="city-tag">📍 Puerto Cabello</span>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div>
+                <div class="stat-num">+20</div>
+                <div class="stat-label">Años de Exp.</div>
+            </div>
+            <div>
+                <div class="stat-num">+1000</div>
+                <div class="stat-label">Eventos</div>
+            </div>
+            <div>
+                <div class="stat-num">100%</div>
+                <div class="stat-label">Garantizado</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">🌟 Nuestros Servicios Premium</h2>
+
+        <div class="service-card">
+            <div class="service-icon">💍</div>
+            <div class="service-info">
+                <h3>Bodas de Ensueño & 15 Años</h3>
+                <p>Montajes temáticos, pistas iluminadas, pirotecnia fría y momentos memorables.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🏢</div>
+            <div class="service-info">
+                <h3>Eventos Corporativos</h3>
+                <p>Convenciones, lanzamientos de marca, aniversarios empresariales y fiestas de fin de año.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🔊</div>
+            <div class="service-info">
+                <h3>Sonido Profesional & Tarimas</h3>
+                <p>Sistemas line array, microfonía inalámbrica, consolas digitales y acústica impecable.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">💡</div>
+            <div class="service-info">
+                <h3>Iluminación Robótica & FX</h3>
+                <p>Cabezas móviles beam/spot, efectos de niebla baja, pantallas LED y cañón de CO2.</p>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🎤</div>
+            <div class="service-info">
+                <h3>Animación & Atracciones 3D</h3>
+                <p>Maestros de ceremonia profesionales, dinámicas interactivas y realidad aumentada.</p>
+            </div>
+        </div>
+
+        <a href="https://wa.me/584144246260?text=Hola%20SF%20Entretenimiento!%20Vi%20su%20p%C3%A1gina%20y%20quiero%20cotizar%20un%20evento." class="cta-btn">
+            💬 Cotizar Mi Evento en WhatsApp
+        </a>
+    </div>
+
+    <div class="fixed-bottom">
+        <div class="fixed-container">
+            <a href="https://wa.me/584144246260?text=Hola%20SF%20Entretenimiento!%20Vi%20su%20p%C3%A1gina%20y%20quiero%20cotizar%20un%20evento." class="fixed-btn">
+                <span>💬</span> Cotizar Disponibilidad por WhatsApp
+            </a>
+        </div>
+    </div>
+</body>
+</html>

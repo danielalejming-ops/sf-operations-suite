@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SF Entretenimiento, C.A. | Producción Integral de Eventos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #030204;
+      --bg-panel: #080509;
+      --vinotinto-vivid: #8a0a27;
+      --vinotinto-glow: #b8143d;
+      --gold-bright: #ffe89e;
+      --gold-mid: #d4af37;
+      --silver-crisp: #f8fafc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      background-color: #030204;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      letter-spacing: -0.01em;
+    }
+
+    /* Global 3D Metallic Plaque Backdrop (Matches the Hero Cover across the entire page!) */
+    .global-3d-backdrop {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      pointer-events: none;
+      overflow: hidden;
+      background: #030204;
+    }
+    .global-3d-backdrop img.bg-plate-main {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      opacity: 0.55;
+      filter: contrast(1.18) brightness(0.78) saturate(1.15);
+      transform: scale(1.06);
+    }
+    .global-3d-backdrop .bg-metallic-glaze {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(125deg,
+          rgba(3, 2, 4, 0.88) 0%,
+          rgba(3, 2, 4, 0.45) 28%,
+          rgba(110, 8, 32, 0.32) 48%,
+          rgba(245, 215, 127, 0.14) 50%,
+          rgba(3, 2, 4, 0.65) 72%,
+          rgba(3, 2, 4, 0.92) 100%
+        );
+    }
+
+    .font-serif-accent {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    h1, h2, h3, h4 {
+      text-wrap: balance;
+    }
+    p {
+      text-wrap: pretty;
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(125deg, #fffbeb 0%, #f5d77f 32%, #d4af37 64%, #fef08a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .silver-gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 52%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ==========================================================================
+       REFINED 3-OVAL FLOATING HEADER BAR (FLOATS DIRECTLY OVER FULL-BLEED HERO)
+       ========================================================================== */
+    .header-floating {
+      background: linear-gradient(180deg, rgba(6, 3, 5, 0.65) 0%, rgba(6, 3, 5, 0.20) 65%, transparent 100%);
+      transition: all 0.35s ease;
+    }
+
+    .oval-status {
+      background: linear-gradient(135deg, #f8fafc 0%, #e5e0d8 55%, #f5d77f 100%);
+      color: #0f0a0c;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 999px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), inset 0 1px 0 #ffffff;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .oval-status:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(212, 175, 55, 0.35);
+    }
+
+    .oval-brand {
+      background: linear-gradient(180deg, rgba(24, 11, 16, 0.88) 0%, rgba(10, 6, 9, 0.94) 100%);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(245, 215, 127, 0.48);
+      border-radius: 999px;
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.8), 0 0 28px rgba(138, 15, 46, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      transition: all 0.3s ease;
+    }
+    .oval-brand:hover {
+      border-color: rgba(245, 215, 127, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .oval-nav {
+      background: linear-gradient(135deg, rgba(26, 17, 22, 0.82) 0%, rgba(12, 8, 12, 0.90) 100%);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      border-radius: 999px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      transition: all 0.25s ease;
+    }
+    .oval-nav:hover {
+      border-color: rgba(245, 215, 127, 0.65);
+      background: rgba(40, 22, 30, 0.92);
+    }
+
+    /* Vibrant Metallic Primary CTA Pill */
+    .btn-vivid-gold {
+      background: linear-gradient(135deg, #9e1136 0%, #6e0924 46%, #c8962e 100%);
+      color: #ffffff;
+      border: 1px solid rgba(245, 215, 127, 0.65);
+      border-radius: 999px;
+      box-shadow: 0 14px 35px rgba(158, 17, 54, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-vivid-gold:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 20px 45px rgba(158, 17, 54, 0.65), 0 0 28px rgba(245, 215, 127, 0.42);
+      filter: brightness(1.12);
+    }
+
+    /* Glossy 3D Metallic Plaque Cards (Exact Match to the Hero 3D Logo Plates!) */
+    .luxury-card {
+      position: relative;
+      background:
+        linear-gradient(128deg,
+          rgba(16, 15, 19, 0.95) 0%,
+          rgba(6, 5, 8, 0.98) 44%,
+          rgba(122, 10, 36, 0.52) 48.8%,
+          rgba(255, 228, 140, 0.28) 49.6%,
+          rgba(78, 6, 24, 0.78) 53%,
+          rgba(5, 4, 7, 0.98) 100%
+        );
+      backdrop-filter: blur(22px);
+      border: 1px solid rgba(245, 215, 127, 0.45);
+      border-radius: 24px;
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.92),
+        0 0 28px rgba(212, 175, 55, 0.14),
+        inset 0 1px 1px rgba(255, 246, 204, 0.42),
+        inset 0 -1px 1px rgba(158, 17, 54, 0.45);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+    .luxury-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 8%;
+      right: 8%;
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 238, 170, 0.9) 50%, transparent 100%);
+      pointer-events: none;
+      z-index: 20;
+    }
+    .luxury-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(255, 234, 155, 0.85);
+      box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.95),
+        0 0 42px rgba(158, 17, 54, 0.48),
+        0 0 26px rgba(245, 215, 127, 0.32),
+        inset 0 1px 2px rgba(255, 250, 220, 0.65);
+    }
+
+    /* Glowing Gold Laser Section Divider (Matches the Hero Gold Light Beams) */
+    .gold-laser-divider {
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(158, 17, 54, 0.6) 20%, rgba(255, 232, 150, 0.85) 50%, rgba(158, 17, 54, 0.6) 80%, transparent 100%);
+      box-shadow: 0 0 18px rgba(245, 215, 127, 0.45);
+    }
+
+    /* Xapo-Style Underlined Action Link with Animated Circle Arrow */
+    .xapo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+      transition: all 0.25s ease;
+    }
+    .xapo-link span.underline-text {
+      border-bottom: 1px solid rgba(245, 215, 127, 0.65);
+      padding-bottom: 3px;
+      transition: border-color 0.25s ease, color 0.25s ease;
+    }
+    .xapo-link .arrow-circle {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid rgba(245, 215, 127, 0.65);
+      background: rgba(212, 175, 55, 0.10);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #f5d77f;
+      transition: all 0.25s ease;
+    }
+    .xapo-link:hover span.underline-text {
+      color: #f5d77f;
+      border-color: #f5d77f;
+    }
+    .xapo-link:hover .arrow-circle {
+      background: #f5d77f;
+      color: #120d10;
+      transform: translate(3px, -3px);
+    }
+
+    /* Floating Badges Animation (Alive & Dynamic) */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-9px); }
+    }
+    .float-badge-1 { animation: floatSlow 4.5s ease-in-out infinite; }
+    .float-badge-2 { animation: floatSlow 5.2s ease-in-out 1.2s infinite; }
+
+    /* Infinite Horizontal Interactive Photo Marquee for Live Event Energy */
+    .marquee-container {
+      overflow: hidden;
+      cursor: grab;
+      user-select: none;
+      touch-action: pan-y;
+      -webkit-user-select: none;
+    }
+    .marquee-container.is-dragging {
+      cursor: grabbing;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      will-change: transform;
+    }
+
+    /* Full-Bleed Top-to-Center Falling 3D Logo Hero Background */
+    .hero-fullbleed-stage {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      background: #070305;
+    }
+
+    /* Seamless base metallic 3D glow on the left edge */
+    .hero-bg-ambient-plate {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left center;
+      filter: brightness(0.42) contrast(1.12) blur(2px);
+      transform: scale(1.05);
+      pointer-events: none;
+    }
+
+    /* Full-bleed 3D focal stage: preserves full 16:9 3D plaque + SF emblem + right metallic cards without cropping */
+    .hero-focal-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    @media (min-width: 1024px) {
+      .hero-focal-canvas {
+        left: auto;
+        right: -3%;
+        top: 0;
+        bottom: 0;
+        width: 78%;
+        height: 100%;
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 12%, #000000 26%, #000000 100%);
+        mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.35) 12%, #000000 26%, #000000 100%);
+      }
+    }
+
+    .drop-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      pointer-events: none;
+      will-change: transform, opacity, filter;
+    }
+
+    .hero-fullbleed-stage.primed .layer-s,
+    .hero-fullbleed-stage.primed .layer-f,
+    .hero-fullbleed-stage.primed .layer-ent,
+    .hero-fullbleed-stage.primed .layer-phones {
+      opacity: 0;
+      transform: translateY(-108%);
+    }
+
+    @keyframes dropFromTopToCenter {
+      0% {
+        opacity: 1;
+        transform: translateY(-108%);
+        filter: brightness(1.55) drop-shadow(0 -18px 16px rgba(212, 175, 55, 0.4));
+      }
+      78% {
+        opacity: 1;
+        transform: translateY(0%);
+        filter: brightness(1.45) drop-shadow(0 0 28px rgba(255, 228, 135, 0.9));
+      }
+      88% {
+        transform: translateY(-2.5%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+        filter: brightness(1.08) drop-shadow(0 12px 24px rgba(0, 0, 0, 0.85));
+      }
+    }
+
+    @keyframes stageTremor {
+      0%, 100% { transform: translate(0, 0); }
+      20% { transform: translate(-7px, 8px); }
+      40% { transform: translate(7px, -6px); }
+      60% { transform: translate(-4px, 4px); }
+      80% { transform: translate(2px, -2px); }
+    }
+
+    .hero-fullbleed-stage.dropping .layer-s {
+      animation: dropFromTopToCenter 0.60s cubic-bezier(0.45, 0.05, 0.85, 0.25) 0.08s forwards;
+    }
+    .hero-fullbleed-stage.dropping .layer-f {
+      animation: dropFromTopToCenter 0.60s cubic-bezier(0.45, 0.05, 0.85, 0.25) 0.68s forwards;
+    }
+    .hero-fullbleed-stage.dropping .layer-ent {
+      animation: dropFromTopToCenter 0.58s cubic-bezier(0.45, 0.05, 0.85, 0.25) 1.28s forwards;
+    }
+    .hero-fullbleed-stage.dropping .layer-phones {
+      animation: dropFromTopToCenter 0.52s cubic-bezier(0.45, 0.05, 0.85, 0.25) 1.65s forwards;
+    }
+
+    .shake-impact {
+      animation: stageTremor 0.32s ease-out;
+    }
+
+    @keyframes sheenSweep {
+      0% { transform: translateX(-140%) skewX(-25deg); }
+      40%, 100% { transform: translateX(240%) skewX(-25deg); }
+    }
+    .sheen-overlay::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 42%; height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 246, 209, 0.26) 50%, transparent 100%);
+      animation: sheenSweep 4.8s infinite ease-in-out 2.2s;
+      pointer-events: none;
+      z-index: 30;
+    }
+
+    /* Animated Flowing Waves in Combos Section */
+    @keyframes wavePulse {
+      0%, 100% { transform: translateY(0px) scaleY(1); }
+      50% { transform: translateY(-10px) scaleY(1.06); }
+    }
+    .animated-waves {
+      animation: wavePulse 7s ease-in-out infinite;
+    }
+
+    /* Filter Pill Buttons */
+    .xapo-filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #d6d0c9;
+      border-radius: 999px;
+      transition: all 0.25s ease;
+    }
+    .xapo-filter-btn:hover {
+      border-color: rgba(245, 215, 127, 0.65);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+    .xapo-filter-btn.active {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 48%, #f5d77f 100%);
+      color: #0f0a0c;
+      border-color: #ffffff;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(245, 215, 127, 0.28);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#b8143d] selection:text-white">
+
+  <!-- GLOBAL 3D METALLIC PLAQUE BACKDROP (UNIFIES THE ENTIRE PAGE WITH THE HERO COVER) -->
+  <div class="global-3d-backdrop" aria-hidden="true">
+    <img src="img/logo_layers/base_plate.jpg" alt="" class="bg-plate-main" />
+    <div class="bg-metallic-glaze"></div>
+  </div>
+
+  <!-- ========================================================================
+       REFINED 3-OVAL FLOATING HEADER (FLOATS OVER FULL-BLEED 3D HERO)
+       ======================================================================== -->
+  <header class="fixed top-0 inset-x-0 z-50 header-floating py-2.5 sm:py-4 px-3 sm:px-8 pointer-events-none">
+    <div class="max-w-[1380px] mx-auto relative flex items-center justify-between gap-2">
+
+      <!-- ÓVALO 1 (Izquierda): Indicador claro y limpio de cobertura y bloque de 4 horas -->
+      <a href="#catalogo" class="hidden sm:flex pointer-events-auto oval-status px-3.5 py-1.5 sm:px-4 sm:py-2 items-center gap-2.5 shrink-0 whitespace-nowrap">
+        <span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span>
+        <span class="w-2 h-2 rounded-full bg-emerald-600 -ml-4.5"></span>
+        <div class="text-[11px] sm:text-xs font-bold tracking-tight text-stone-900">
+          Bloques de 4 Horas
+        </div>
+        <span class="hidden md:inline text-stone-400">•</span>
+        <div class="hidden md:block text-xs font-semibold text-stone-700">
+          Desde $25 hasta $150
+        </div>
+      </a>
+
+      <!-- ÓVALO 2 (Centro): Emblema 3D + Nombre SF Entretenimiento -->
+      <a href="#inicio" class="pointer-events-auto oval-brand px-3 sm:px-6 py-1.5 flex items-center gap-2.5 sm:gap-3 shrink-0 whitespace-nowrap">
+        <div class="w-7 h-7 sm:w-9 sm:h-9 rounded-full p-0.5 bg-gradient-to-br from-[#f5d77f] via-[#d4af37] to-[#8a0f2e] shrink-0">
+          <img src="img/sf_emblem_3d_square.jpg" alt="SF" class="w-full h-full rounded-full object-cover" />
+        </div>
+        <div class="text-left">
+          <div class="text-[11px] sm:text-sm font-bold tracking-[0.16em] sm:tracking-[0.22em] text-white uppercase leading-tight">SF ENTRETENIMIENTO</div>
+          <div class="text-[8px] sm:text-[10px] tracking-[0.12em] sm:tracking-[0.16em] text-amber-300/90 uppercase leading-tight">Valencia • Maracay • Pto. Cabello</div>
+        </div>
+      </a>
+
+      <!-- ÓVALO 3 (Derecha): Navegación rápida + Botón de Reserva -->
+      <div class="pointer-events-auto flex items-center gap-2 shrink-0 whitespace-nowrap">
+        <nav class="hidden xl:flex items-center oval-nav px-2 py-1 gap-1">
+          <a href="#catalogo" onclick="filterCatalog('sonido')" class="px-2.5 py-1.5 rounded-full text-xs font-medium text-stone-200 hover:text-amber-300 hover:bg-white/5 transition">Sonido y LED</a>
+          <a href="#catalogo" onclick="filterCatalog('snacks')" class="px-2.5 py-1.5 rounded-full text-xs font-medium text-stone-200 hover:text-amber-300 hover:bg-white/5 transition">Snacks</a>
+          <a href="#catalogo" onclick="filterCatalog('atracciones')" class="px-2.5 py-1.5 rounded-full text-xs font-medium text-stone-200 hover:text-amber-300 hover:bg-white/5 transition">Inflables</a>
+          <a href="#catalogo" onclick="filterCatalog('gamer_gyncana')" class="px-2.5 py-1.5 rounded-full text-xs font-medium text-stone-200 hover:text-amber-300 hover:bg-white/5 transition">Gamer y VR</a>
+          <a href="#combos" class="px-2.5 py-1.5 rounded-full text-xs font-medium text-amber-300 hover:bg-white/5 transition">Colecciones</a>
+        </nav>
+
+        <a href="#contacto" class="btn-vivid-gold px-3.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold flex items-center gap-2">
+          <span>Reservar</span>
+          <span class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-black/25 border border-white/30 flex items-center justify-center text-[10px] sm:text-[11px]">→</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       SECTION 1: FULL-BLEED 3D FALLING LOGO HERO (EDGE-TO-EDGE WELCOME STAGE)
+       ======================================================================== -->
+  <section id="inicio" class="relative w-full min-h-[720px] lg:h-[840px] max-h-[880px] flex flex-col justify-center pt-24 pb-12 px-4 sm:px-8 overflow-hidden">
+
+    <!-- FULL-BLEED 3D LOGO STAGE COVERING THE ENTIRE HERO BACKGROUND -->
+    <div id="xapoHeroStage" class="hero-fullbleed-stage sheen-overlay cursor-pointer" onclick="triggerTopDrop()" title="Haz clic para repetir la caída del logo 3D">
+      <!-- Ambient left-to-right metallic 3D plaques so the entire screen has texture -->
+      <img src="img/logo_layers/base_plate.jpg" alt="" class="hero-bg-ambient-plate" />
+
+      <!-- Main Full-Bleed 3D Logo + Falling Pieces (S -> F -> Entretenimiento -> Teléfonos) -->
+      <div id="heroParallaxInner" class="hero-focal-canvas">
+        <img src="img/logo_layers/base_plate.jpg" alt="SF Placa 3D" class="drop-layer z-10" />
+        <img src="img/logo_layers/piece_s.png" alt="S 3D" class="drop-layer layer-s z-20" />
+        <img src="img/logo_layers/piece_f.png" alt="F 3D" class="drop-layer layer-f z-20" />
+        <img src="img/logo_layers/piece_ent.png" alt="Entretenimiento 3D" class="drop-layer layer-ent z-20" />
+        <img src="img/logo_layers/piece_phones.png" alt="Teléfonos 3D" class="drop-layer layer-phones z-20" />
+      </div>
+
+      <!-- Smooth directional vignette on the left for crisp text legibility while leaving the right 3D logo 100% bright & open -->
+      <div class="absolute inset-0 pointer-events-none z-30"
+           style="background:
+             linear-gradient(90deg, rgba(6, 3, 5, 0.94) 0%, rgba(6, 3, 5, 0.82) 26%, rgba(6, 3, 5, 0.22) 45%, rgba(6, 3, 5, 0.0) 62%),
+             linear-gradient(180deg, rgba(6, 3, 5, 0.30) 0%, rgba(6, 3, 5, 0.0) 20%, rgba(6, 3, 5, 0.0) 82%, #070508 100%);">
+      </div>
+    </div>
+
+    <!-- Foreground Welcome Content (Left Column over Full-Bleed 3D Stage) -->
+    <div class="relative z-40 max-w-[1380px] mx-auto w-full pointer-events-none">
+      <div class="max-w-[540px] space-y-5 pointer-events-auto">
+
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#1a0b12]/85 backdrop-blur-md border border-amber-400/45 text-xs font-semibold text-amber-200 tracking-wide shadow-lg">
+          <span class="w-2 h-2 rounded-full bg-amber-300 animate-pulse"></span>
+          <span>Más de 20 años creando celebraciones inolvidables</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl xl:text-[54px] font-semibold tracking-tight text-white leading-[1.08] drop-shadow-[0_10px_28px_rgba(0,0,0,0.9)]">
+          La energía, el sonido y la diversión que hacen <span class="font-serif-accent italic font-semibold gold-gradient-text text-5xl sm:text-6xl xl:text-[62px]">único</span> tu evento.
+        </h1>
+
+        <p class="text-base sm:text-[17px] text-stone-200 leading-relaxed max-w-lg font-normal drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)]">
+          Desde cabinas DJ con pantallas LED y pistas Infinity 3D hasta carritos de perros calientes, megacolchones inflables y estaciones de Realidad Virtual con planta eléctrica propia.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3.5 pt-2">
+          <a href="#catalogo" class="btn-vivid-gold px-7 py-4 text-sm font-bold inline-flex items-center gap-3.5">
+            <span>Explorar el Catálogo</span>
+            <span class="w-6 h-6 rounded-full bg-black/25 border border-white/35 flex items-center justify-center text-xs">→</span>
+          </a>
+
+          <button onclick="triggerTopDrop()" class="oval-nav px-6 py-4 text-sm font-semibold text-amber-200 inline-flex items-center gap-2.5">
+            <span>Repetir caída 3D (S → F)</span>
+            <span class="text-amber-300">↓</span>
+          </button>
+        </div>
+
+        <!-- Quick Live Trust Metrics -->
+        <div class="flex flex-wrap items-center gap-8 sm:gap-10 pt-5 border-t border-white/15 max-w-xl">
+          <div>
+            <div class="text-2xl sm:text-3xl font-bold gold-gradient-text whitespace-nowrap">+20 Años</div>
+            <div class="text-xs text-stone-300 mt-0.5 whitespace-nowrap">De experiencia</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-bold silver-gradient-text whitespace-nowrap">29 Equipos</div>
+            <div class="text-xs text-stone-300 mt-0.5 whitespace-nowrap">En catálogo propio</div>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-bold text-emerald-400 whitespace-nowrap">100%</div>
+            <div class="text-xs text-stone-300 mt-0.5 whitespace-nowrap">Respaldo eléctrico</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========================================================================
+       SECTION 2: LIVE MOVING EVENT SHOWCASE MARQUEE (CONTINUOUS + DRAGGABLE)
+       ======================================================================== -->
+  <div class="gold-laser-divider"></div>
+  <section class="relative py-7 bg-[#040205]/85 backdrop-blur-md overflow-hidden">
+    <div id="interactiveMarquee" class="marquee-container px-3">
+      <div id="marqueeTrack" class="marquee-track gap-5">
+        <!-- Set 1 -->
+        <div class="flex items-center gap-5">
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 group pointer-events-none sm:pointer-events-auto">
+            <img src="img/said_photos/WhatsApp Image 2026-11-03 at 08.19.27 (1).jpeg" alt="Cabina DJ y Tótems LED" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Cabina DJ &amp; 3 Tótems LED</span>
+          </div>
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 group pointer-events-none sm:pointer-events-auto">
+            <img src="img/said_photos/WhatsApp Image 2026-11-03 at 08.19.29 (2).jpeg" alt="Pista Infinity 3D" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Pista de Baile LED Infinity 3D</span>
+          </div>
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 group pointer-events-none sm:pointer-events-auto">
+            <img src="img/said_photos/WhatsApp Image 2026-11-03 at 08.19.27.jpeg" alt="15 Años y Bodas" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Bodas y 15 Años de Gala</span>
+          </div>
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 group pointer-events-none sm:pointer-events-auto">
+            <img src="img/catalogo/p03_img02.jpg" alt="Ninja Wall 12x9" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Megainflable Ninja Wall 12×9m</span>
+          </div>
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 group pointer-events-none sm:pointer-events-auto">
+            <img src="img/catalogo/p08_img03.jpg" alt="Snacks y Perros" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Estaciones de Perros y Hamburguesas</span>
+          </div>
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 group pointer-events-none sm:pointer-events-auto">
+            <img src="img/catalogo/p06_img02.jpg" alt="Zona Gamer y VR" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Zona Gamer: Realidad Virtual + Play + Xbox</span>
+          </div>
+        </div>
+        <!-- Duplicate Set for Seamless Loop -->
+        <div class="flex items-center gap-5" aria-hidden="true">
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 pointer-events-none sm:pointer-events-auto">
+            <img src="img/said_photos/WhatsApp Image 2026-11-03 at 08.19.27 (1).jpeg" alt="" class="w-full h-full object-cover pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Cabina DJ &amp; 3 Tótems LED</span>
+          </div>
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 pointer-events-none sm:pointer-events-auto">
+            <img src="img/said_photos/WhatsApp Image 2026-11-03 at 08.19.29 (2).jpeg" alt="" class="w-full h-full object-cover pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Pista de Baile LED Infinity 3D</span>
+          </div>
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 pointer-events-none sm:pointer-events-auto">
+            <img src="img/said_photos/WhatsApp Image 2026-11-03 at 08.19.27.jpeg" alt="" class="w-full h-full object-cover pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Bodas y 15 Años de Gala</span>
+          </div>
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 pointer-events-none sm:pointer-events-auto">
+            <img src="img/catalogo/p03_img02.jpg" alt="" class="w-full h-full object-cover pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Megainflable Ninja Wall 12×9m</span>
+          </div>
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 pointer-events-none sm:pointer-events-auto">
+            <img src="img/catalogo/p08_img03.jpg" alt="" class="w-full h-full object-cover pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Estaciones de Perros y Hamburguesas</span>
+          </div>
+          <div class="relative w-72 h-44 rounded-2xl overflow-hidden border border-amber-400/30 shrink-0 pointer-events-none sm:pointer-events-auto">
+            <img src="img/catalogo/p06_img02.jpg" alt="" class="w-full h-full object-cover pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3.5 text-xs font-bold text-white">Zona Gamer: Realidad Virtual + Play + Xbox</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-laser-divider"></div>
+
+  <!-- ========================================================================
+       SECTION 3: 4 PILLAR CARDS + FULL-COLOR EDITORIAL SPLIT PANELS
+       (WITH CONTINUOUS 3D METALLIC PLAQUE STAGE BEHIND)
+       ======================================================================== -->
+  <section class="relative py-20 px-4 sm:px-8 overflow-hidden">
+    <!-- Section-level 3D Metallic Plaque Stage matching the Hero Cover -->
+    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+      <img src="img/logo_layers/base_plate.jpg" alt="" class="w-full h-full object-cover opacity-65 scale-105 -scale-x-100" style="filter: contrast(1.22) brightness(0.85);" />
+      <div class="absolute inset-0" style="background: linear-gradient(180deg, #030204 0%, rgba(3,2,4,0.35) 18%, rgba(3,2,4,0.40) 82%, #030204 100%);"></div>
+    </div>
+
+    <div class="relative z-10 max-w-[1380px] mx-auto space-y-20">
+
+    <!-- 4 Visual Category Cards (Zero Text Wrapping on Titles) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <a href="#catalogo" onclick="filterCatalog('sonido')" class="luxury-card p-6 flex flex-col justify-between min-h-[210px] group">
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-300 border-b border-white/10 pb-3 whitespace-nowrap">
+          <span>SONIDO Y LED</span>
+          <span class="group-hover:translate-x-1 transition">Desde $100 →</span>
+        </div>
+        <div class="flex items-center gap-3.5 pt-4">
+          <img src="img/said_photos/WhatsApp Image 2026-11-03 at 08.19.27 (1).jpeg" alt="Sonido" class="w-14 h-14 rounded-xl object-cover shrink-0 border border-amber-400/50 shadow-md" />
+          <div class="min-w-0">
+            <div class="text-base font-bold silver-gradient-text leading-snug whitespace-nowrap">Sonido, DJ y Pantallas</div>
+            <p class="text-xs text-stone-300 mt-1 leading-relaxed">1, 2 y 3 pantallas HD, DJ en vivo y Pista Infinity 3D.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="#catalogo" onclick="filterCatalog('snacks')" class="luxury-card p-6 flex flex-col justify-between min-h-[210px] group">
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-300 border-b border-white/10 pb-3 whitespace-nowrap">
+          <span>SNACKS Y BARRA</span>
+          <span class="group-hover:translate-x-1 transition">Desde $40 →</span>
+        </div>
+        <div class="flex items-center gap-3.5 pt-4">
+          <img src="img/catalogo/p08_img03.jpg" alt="Snacks" class="w-14 h-14 rounded-xl object-cover shrink-0 border border-amber-400/50 shadow-md" />
+          <div class="min-w-0">
+            <div class="text-base font-bold silver-gradient-text leading-snug whitespace-nowrap">Snacks y Comida</div>
+            <p class="text-xs text-stone-300 mt-1 leading-relaxed">Perros calientes, hamburguesas, algodón, cotufas y barra.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="#catalogo" onclick="filterCatalog('atracciones')" class="luxury-card p-6 flex flex-col justify-between min-h-[210px] group">
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-300 border-b border-white/10 pb-3 whitespace-nowrap">
+          <span>INFLABLES</span>
+          <span class="group-hover:translate-x-1 transition">Desde $45 →</span>
+        </div>
+        <div class="flex items-center gap-3.5 pt-4">
+          <img src="img/catalogo/p03_img02.jpg" alt="Inflables" class="w-14 h-14 rounded-xl object-cover shrink-0 border border-amber-400/50 shadow-md" />
+          <div class="min-w-0">
+            <div class="text-base font-bold silver-gradient-text leading-snug whitespace-nowrap">Colchones y Mecánicos</div>
+            <p class="text-xs text-stone-300 mt-1 leading-relaxed">Ninja Wall 12×9m, Salto Extremo, Toboganes y Castillos.</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="#catalogo" onclick="filterCatalog('gamer_gyncana')" class="luxury-card p-6 flex flex-col justify-between min-h-[210px] group">
+        <div class="flex items-center justify-between text-xs font-semibold text-amber-300 border-b border-white/10 pb-3 whitespace-nowrap">
+          <span>ZONA GAMER</span>
+          <span class="group-hover:translate-x-1 transition">Desde $25 →</span>
+        </div>
+        <div class="flex items-center gap-3.5 pt-4">
+          <img src="img/catalogo/p06_img02.jpg" alt="Gamer" class="w-14 h-14 rounded-xl object-cover shrink-0 border border-amber-400/50 shadow-md" />
+          <div class="min-w-0">
+            <div class="text-base font-bold silver-gradient-text leading-snug whitespace-nowrap">Realidad Virtual y Espuma</div>
+            <p class="text-xs text-stone-300 mt-1 leading-relaxed">Visores VR 3D, PlayStation, Xbox, Espuma y Mesas.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Split Panel 1: FULL NATURAL COLOR PHOTO (ZERO SEPIA!) + CLEAR 4 HRS GUARANTEE -->
+    <div class="luxury-card grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
+      <!-- Left Photo in 100% Vivid Natural Color! -->
+      <div class="lg:col-span-6 relative min-h-[380px] sm:min-h-[430px] flex flex-col justify-end p-8 overflow-hidden">
+        <img src="img/said_photos/WhatsApp Image 2026-11-03 at 08.19.28 (1).jpeg" alt="Sonido Line Array y Pantallas SF" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#070508] via-[#070508]/25 to-transparent"></div>
+
+        <div class="relative z-10 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <div class="text-5xl sm:text-6xl font-extrabold leading-none tracking-tight gold-gradient-text drop-shadow-lg whitespace-nowrap">
+              4 HORAS
+            </div>
+            <div class="text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase text-white mt-1.5 whitespace-nowrap">
+              BLOQUE OFICIAL EN TODOS LOS SERVICIOS
+            </div>
+          </div>
+
+          <div class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-black/80 backdrop-blur-md border border-amber-400/50 text-xs text-amber-200 font-semibold whitespace-nowrap shrink-0">
+            <span>⚡ Planta Eléctrica Propia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Specification Copy with Generous Line-Height & Clean Hierarchy -->
+      <div class="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-center space-y-6">
+        <div class="text-xs font-bold uppercase tracking-[0.24em] text-amber-300">
+          TARIFAS CLARAS • EQUIPOS PROPIOS
+        </div>
+
+        <h2 class="text-2xl sm:text-4xl font-semibold text-white leading-[1.22]">
+          Montajes completos con sonido, pantallas e iluminación desde $100
+        </h2>
+
+        <p class="text-sm sm:text-base text-stone-200 leading-relaxed">
+          Cada contratación incluye 4 horas completas de servicio continuo con personal técnico y operadores uniformados, garantizando puntualidad, imagen impecable y respaldo eléctrico.
+        </p>
+
+        <ul class="space-y-3 text-sm text-stone-200">
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-amber-400 mt-2 shrink-0"></span>
+            <span><strong class="text-white">Sonido y Pantallas ($100 – $150):</strong> Opciones con 1, 2 o 3 pantallas HD, animador, DJ en vivo y show de luces.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="w-2 h-2 rounded-full bg-amber-400 mt-2 shrink-0"></span>
+            <span><strong class="text-white">Inflables y Atracciones ($45 – $150):</strong> Desde camas elásticas y castillos hasta el Ninja Wall gigante de 12×9 metros.</span>
+          </li>
+        </ul>
+
+        <div class="pt-2">
+          <a href="#catalogo" class="xapo-link">
+            <span class="underline-text">Explorar las 29 opciones del catálogo</span>
+            <span class="arrow-circle">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </section>
+
+  <div class="gold-laser-divider"></div>
+
+  <!-- ========================================================================
+       SECTION 4: COMBOS RÁPIDOS OVER 3D METALLIC PLAQUES & GOLDEN WAVES
+       ======================================================================== -->
+  <section id="combos" class="relative py-20 px-4 sm:px-8 overflow-hidden">
+    <!-- Section-level 3D Metallic Plaque Stage matching the Hero Cover -->
+    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+      <img src="img/logo_layers/base_plate.jpg" alt="" class="w-full h-full object-cover opacity-60 scale-105" style="filter: contrast(1.2) brightness(0.82);" />
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse 48% 32% at 50% 24%, rgba(3,2,4,0.92) 0%, transparent 100%), linear-gradient(180deg, #030204 0%, rgba(3,2,4,0.35) 20%, rgba(3,2,4,0.35) 80%, #030204 100%);"></div>
+    </div>
+
+    <!-- Animated Golden & Crimson Topographic Waves -->
+    <svg class="animated-waves absolute inset-x-0 bottom-0 w-full h-[440px] pointer-events-none opacity-55" viewBox="0 0 1440 420" fill="none" preserveAspectRatio="none">
+      <g stroke="url(#vividWaveGrad)" stroke-width="1.6">
+        <path d="M-100 380 C 320 170, 680 440, 1540 200" />
+        <path d="M-100 360 C 320 150, 680 420, 1540 180" opacity="0.85" />
+        <path d="M-100 340 C 320 130, 680 400, 1540 160" opacity="0.7" />
+        <path d="M-100 320 C 320 110, 680 380, 1540 140" opacity="0.55" />
+        <path d="M-100 300 C 320 90, 680 360, 1540 120" opacity="0.4" />
+      </g>
+      <defs>
+        <linearGradient id="vividWaveGrad" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#070508" />
+          <stop offset="28%" stop-color="#b8143d" />
+          <stop offset="68%" stop-color="#f5d77f" />
+          <stop offset="100%" stop-color="#070508" />
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <div class="relative z-10 max-w-[1380px] mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+        <div class="text-xs font-bold uppercase tracking-[0.26em] text-amber-300">PRODUCCIONES INTEGRALES • 1 CLIC</div>
+        <h2 class="text-3xl sm:text-5xl font-semibold text-white leading-tight">
+          Colecciones de Evento Signature
+        </h2>
+        <p class="text-sm sm:text-base text-stone-300">
+          Selecciona cualquiera de nuestras experiencias completas de 4 horas y envíala directo por WhatsApp.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Combo 1 -->
+        <div class="luxury-card p-8 flex flex-col justify-between min-h-[340px]">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold tracking-[0.2em] uppercase text-amber-300">COLECCIÓN 01 • KIDS &amp; FAMILY</span>
+              <span class="px-3.5 py-1 rounded-full bg-amber-400/20 border border-amber-300/50 text-amber-200 font-bold text-sm">$305 USD</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Fiesta Infantil Completa</h3>
+            <p class="text-sm text-stone-200 leading-relaxed">
+              Animación con Sonido + 1 Pantalla HD ($100), Castillo Inflable de 6×6m ($55) y Carrito con 100 Perros Calientes ($150).
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+            <span class="text-xs text-stone-300 font-medium">3 Servicios • 4 Horas</span>
+            <button onclick="applyPreset(['sonido-1p', 'atrac-castillo6x6', 'snacks-perros'])" class="xapo-link">
+              <span class="underline-text">Seleccionar Colección</span>
+              <span class="arrow-circle">↗</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Combo 2 -->
+        <div class="luxury-card p-8 flex flex-col justify-between min-h-[340px]">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold tracking-[0.2em] uppercase text-amber-300">COLECCIÓN 02 • TEEN &amp; VR</span>
+              <span class="px-3.5 py-1 rounded-full bg-amber-400/20 border border-amber-300/50 text-amber-200 font-bold text-sm">$500 USD</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Teen / Chamoteca + Zona Gamer</h3>
+            <p class="text-sm text-stone-200 leading-relaxed">
+              Chamoteca 2 Pantallas + DJ ($120), Zona Gamer VR + Play + Xbox ($150), 100 Perros Calientes ($150) y Algodón + Cotufas ($80).
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+            <span class="text-xs text-stone-300 font-medium">4 Servicios • 4 Horas</span>
+            <button onclick="applyPreset(['chamoteca-2p', 'gamer-completa', 'snacks-perros', 'snacks-algodon-cotufas'])" class="xapo-link">
+              <span class="underline-text">Seleccionar Colección</span>
+              <span class="arrow-circle">↗</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Combo 3 -->
+        <div class="luxury-card p-8 flex flex-col justify-between min-h-[340px]">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold tracking-[0.2em] uppercase text-amber-300">COLECCIÓN 03 • GALA SOCIAL</span>
+              <span class="px-3.5 py-1 rounded-full bg-amber-400/20 border border-amber-300/50 text-amber-200 font-bold text-sm">$500 USD</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Celebración &amp; Gala Social</h3>
+            <p class="text-sm text-stone-200 leading-relaxed">
+              Sonido Especial con 3 Pantallas HD, DJ y Luces ($150), Barra Refrescante de bebidas ($200) y Estación de 60 Hamburguesas ($150).
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/10 flex items-center justify-between">
+            <span class="text-xs text-stone-300 font-medium">3 Servicios • 4 Horas</span>
+            <button onclick="applyPreset(['sonido-3p', 'snacks-barra', 'snacks-hamburguesas'])" class="xapo-link">
+              <span class="underline-text">Seleccionar Colección</span>
+              <span class="arrow-circle">↗</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <div class="gold-laser-divider"></div>
+
+  <!-- ========================================================================
+       SECTION 5: FULL 29-ITEM INTERACTIVE CATALOG (WITH 3D METALLIC STAGE)
+       ======================================================================== -->
+  <section id="catalogo" class="relative py-20 px-4 sm:px-8 overflow-hidden">
+    <!-- Section-level 3D Metallic Plaque Stage matching the Hero Cover -->
+    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+      <img src="img/logo_layers/base_plate.jpg" alt="" class="w-full h-full object-cover opacity-55 scale-105 -scale-x-100" style="filter: contrast(1.22) brightness(0.8);" />
+      <div class="absolute inset-0" style="background: linear-gradient(180deg, #030204 0%, rgba(3,2,4,0.42) 15%, rgba(3,2,4,0.45) 85%, #030204 100%);"></div>
+    </div>
+
+    <div class="relative z-10 max-w-[1380px] mx-auto">
+
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+      <div class="space-y-2">
+        <div class="text-xs uppercase tracking-[0.24em] text-amber-300 font-bold">TARIFARIO OFICIAL • 4 HORAS POR SERVICIO</div>
+        <h2 class="text-3xl sm:text-5xl font-semibold text-white leading-tight">
+          Colección de Servicios y Precios
+        </h2>
+      </div>
+
+      <!-- Filter Pills (Single Row on Desktop, Zero Wrapping) -->
+      <div class="flex flex-wrap lg:flex-nowrap gap-2 shrink-0" id="catalogFilterBar">
+        <button onclick="filterCatalog('todos')" data-cat="todos" class="xapo-filter-btn active px-4 py-2.5 text-xs whitespace-nowrap">Todos (29)</button>
+        <button onclick="filterCatalog('sonido')" data-cat="sonido" class="xapo-filter-btn px-4 py-2.5 text-xs whitespace-nowrap">Sonido y LED (8)</button>
+        <button onclick="filterCatalog('snacks')" data-cat="snacks" class="xapo-filter-btn px-4 py-2.5 text-xs whitespace-nowrap">Snacks y Barra (5)</button>
+        <button onclick="filterCatalog('atracciones')" data-cat="atracciones" class="xapo-filter-btn px-4 py-2.5 text-xs whitespace-nowrap">Inflables y Mecánicos (11)</button>
+        <button onclick="filterCatalog('gamer_gyncana')" data-cat="gamer_gyncana" class="xapo-filter-btn px-4 py-2.5 text-xs whitespace-nowrap">Zona Gamer y VR (5)</button>
+      </div>
+    </div>
+
+    <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+    <!-- Official Note Banner -->
+    <div class="mt-12 p-8 luxury-card flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1 text-center md:text-left">
+        <div class="text-xs font-bold uppercase tracking-[0.22em] text-amber-300">CONDICIONES DEL CATÁLOGO</div>
+        <div class="text-lg sm:text-xl text-white font-medium">
+          Todos los precios están expresados para un tiempo de <span class="gold-gradient-text font-bold">4 horas</span>. El costo del transporte dependerá de la zona.
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3 shrink-0">
+        <a href="catalogo_de_precios_sf_2.pdf" target="_blank" class="oval-nav px-5 py-3 text-xs font-semibold text-white">
+          Descargar PDF Original
+        </a>
+        <a href="https://wa.me/584144246260?text=Hola%20Said,%20quiero%20consultar%20disponibilidad%20y%20transporte%20para%20mi%20evento." target="_blank" class="btn-vivid-gold px-6 py-3 text-xs font-bold">
+          Cotizar Transporte por Zona →
+        </a>
+      </div>
+    </div>
+    </div>
+
+  </section>
+
+  <div class="gold-laser-divider"></div>
+
+  <!-- ========================================================================
+       SECTION 6: DIRECT CONTACT (SAID & FERNANDO)
+       ======================================================================== -->
+  <section id="contacto" class="relative py-20 px-4 sm:px-8 overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+      <img src="img/logo_layers/base_plate.jpg" alt="" class="w-full h-full object-cover opacity-60 scale-105" style="filter: contrast(1.2) brightness(0.82);" />
+      <div class="absolute inset-0" style="background: linear-gradient(180deg, #030204 0%, rgba(3,2,4,0.38) 25%, #030204 100%);"></div>
+    </div>
+    <div class="relative z-10 max-w-[1380px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-6 space-y-4">
+        <div class="text-xs uppercase tracking-[0.24em] text-amber-300 font-bold">ATENCIÓN DIRECTA • VALENCIA, MARACAY Y PUERTO CABELLO</div>
+        <h2 class="text-3xl sm:text-5xl font-semibold text-white leading-tight">
+          Hagamos de tu evento una celebración inolvidable
+        </h2>
+        <p class="text-sm sm:text-base text-stone-200 leading-relaxed">
+          Escríbenos directamente por WhatsApp para confirmar disponibilidad de fecha, personalizar tu montaje o consultar el traslado a tu salón o urbanización.
+        </p>
+      </div>
+
+      <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <a href="https://wa.me/584144246260?text=Hola%20Said,%20quiero%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20SF%20Entretenimiento." target="_blank" class="luxury-card p-7 flex flex-col justify-between min-h-[175px] group">
+          <div class="text-xs font-bold uppercase tracking-[0.24em] text-amber-300">SAID</div>
+          <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight my-3">0414-424.62.60</div>
+          <div class="xapo-link">
+            <span class="underline-text">Escribir por WhatsApp</span>
+            <span class="arrow-circle">↗</span>
+          </div>
+        </a>
+
+        <a href="https://wa.me/584144270723?text=Hola%20Fernando,%20quiero%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20SF%20Entretenimiento." target="_blank" class="luxury-card p-7 flex flex-col justify-between min-h-[175px] group">
+          <div class="text-xs font-bold uppercase tracking-[0.24em] text-amber-300">FERNANDO</div>
+          <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight my-3">0414-427.07.23</div>
+          <div class="xapo-link">
+            <span class="underline-text">Escribir por WhatsApp</span>
+            <span class="arrow-circle">↗</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 bg-[#050306] py-10 px-4 sm:px-8">
+    <div class="max-w-[1380px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-stone-300">
+      <div class="flex items-center gap-3.5">
+        <img src="img/sf_emblem_3d_square.jpg" alt="SF" class="w-10 h-10 rounded-full object-cover border border-amber-400/50" />
+        <div>
+          <div class="text-white font-bold tracking-wider uppercase">SF ENTRETENIMIENTO, C.A.</div>
+          <div class="text-stone-400">RIF J-30881461-0 • Valencia • Maracay • Puerto Cabello</div>
+        </div>
+      </div>
+      <div class="text-center sm:text-right space-y-1">
+        <div><strong class="text-amber-300">Said:</strong> 0414-424.62.60 &nbsp;|&nbsp; <strong class="text-amber-300">Fernando:</strong> 0414-427.07.23</div>
+        <div class="text-stone-400">Instagram: @sfentretenimiento1 • @sfeventos.especiales</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING QUOTE BUILDER BAR -->
+  <div id="quoteBar" class="fixed bottom-5 inset-x-4 max-w-4xl mx-auto z-50 rounded-full bg-[#160d14]/95 backdrop-blur-2xl px-6 py-3.5 shadow-[0_24px_60px_rgba(0,0,0,0.95)] border border-amber-400/50 transition-all duration-300 translate-y-40 opacity-0 pointer-events-none">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-3.5">
+        <div class="w-9 h-9 rounded-full bg-amber-400 text-stone-950 font-extrabold flex items-center justify-center text-sm" id="quoteCountBadge">0</div>
+        <div class="text-xs sm:text-sm">
+          <span class="text-stone-300">Mi Presupuesto (4h):</span>
+          <strong id="quoteTotalUsd" class="text-amber-300 ml-1 text-base">$0</strong>
+          <span class="text-[11px] text-stone-400 hidden md:inline"> + transporte según zona</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="clearQuote()" class="px-3.5 py-2 rounded-full text-xs text-stone-300 hover:bg-white/10 transition">Limpiar</button>
+        <button onclick="sendQuoteWhatsApp('said')" class="btn-vivid-gold px-5 py-2 text-xs font-bold">Enviar a Said →</button>
+        <button onclick="sendQuoteWhatsApp('fernando')" class="oval-nav px-4 py-2 text-xs text-white font-semibold">Fernando</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="lightboxModal" onclick="closeLightbox()" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="max-w-4xl w-full bg-[#140d13] border border-amber-400/40 rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+        <div id="lightboxTitle" class="text-lg text-white font-bold"></div>
+        <button onclick="closeLightbox()" class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs text-white">✕</button>
+      </div>
+      <div class="p-4 flex items-center justify-center bg-black max-h-[75vh]">
+        <img id="lightboxImg" src="" alt="Vista ampliada" class="max-h-[70vh] w-auto object-contain rounded-xl" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const CATALOG_ITEMS = [
+      { id: 'sonido-1p', cat: 'sonido', catLabel: 'Sonido y Animación', specTag: '1 PANTALLA HD • SONIDO • ANIMADOR', title: 'Animación con Sonido + 1 Pantalla', price: 100, priceText: '$100', duration: '4 Horas', img: 'img/catalogo/p02_img01.jpg', desc: 'Sistema de sonido profesional, 1 pantalla HD en estructura vertical y animador en vivo.' },
+      { id: 'sonido-2p', cat: 'sonido', catLabel: 'Sonido y Animación', specTag: '2 PANTALLAS HD • SONIDO • ANIMADOR', title: 'Animación con Sonido + 2 Pantallas', price: 110, priceText: '$110', duration: '4 Horas', img: 'img/catalogo/p02_img03.jpg', desc: 'Cabina iluminada, sonido profesional, 2 pantallas HD en tótems e iluminación con animador.' },
+      { id: 'chamoteca-2p', cat: 'sonido', catLabel: 'Sonido y Chamoteca', specTag: '2 PANTALLAS • DJ EN VIVO • LUCES', title: 'Chamoteca con 2 Pantallas, DJ y Luces', price: 120, priceText: '$120', duration: '4 Horas', img: 'img/catalogo/p02_img02.jpg', desc: 'Montaje completo de chamoteca con 2 pantallas HD, DJ en vivo, animador e iluminación rítmica.' },
+      { id: 'sonido-3p', cat: 'sonido', catLabel: 'Sonido Especial', specTag: '3 PANTALLAS HD • DJ • SHOW DE LUCES', title: 'Sonido Especial con 3 Pantallas, DJ y Luces', price: 150, priceText: '$150', duration: '4 Horas', img: 'img/catalogo/p02_img04.jpg', desc: 'Despliegue superior con 3 pantallas HD en estructura iluminada, DJ en vivo, animador y luces.' },
+      { id: 'elite-totems', cat: 'sonido', catLabel: 'Producción de Gala', specTag: '3 TÓTEMS VERTICALES • TUBOS LED CIAN', title: 'Cabina DJ con 3 Tótems Verticales y Tubos LED', price: null, priceText: 'A Medida', duration: 'Bodas / Galas', img: 'img/said_photos/WhatsApp Image 2026-11-03 at 08.19.27 (1).jpeg', desc: 'Escenografía moderna con 3 pantallas verticales en cabina, tubos LED cian y cabezas móviles Beam.' },
+      { id: 'elite-infinity', cat: 'sonido', catLabel: 'Pista LED 3D', specTag: 'PISTA INFINITY 3D • 3 PANTALLAS', title: 'Pista de Baile LED Infinity 3D + Escenario', price: null, priceText: 'A Medida', duration: 'Bodas / 15 Años', img: 'img/said_photos/WhatsApp Image 2026-11-03 at 08.19.29 (2).jpeg', desc: 'Pista de cristal luminoso con efecto abismo infinito en 3D acompañada de escenario de 3 pantallas.' },
+      { id: 'elite-xv', cat: 'sonido', catLabel: '15 Años y Bodas', specTag: 'VISUALES A MEDIDA • ILUMINACIÓN GALA', title: 'Escenario «Mis XV Años» Personalizado', price: null, priceText: 'A Medida', duration: 'Gala Completa', img: 'img/said_photos/WhatsApp Image 2026-11-03 at 08.19.27.jpeg', desc: 'Diseño visual personalizado en pantallas HD, iluminación cálida y efectos para el gran vals.' },
+      { id: 'elite-linearray', cat: 'sonido', catLabel: 'Sonido Concierto', specTag: 'SISTEMA LINE ARRAY • SUBGRAVES • PLANTA', title: 'Sistema Line Array Exterior + Subgraves', price: null, priceText: 'A Medida', duration: 'Grandes Eventos', img: 'img/said_photos/WhatsApp Image 2026-11-03 at 08.19.28 (1).jpeg', desc: 'Torres Line Array y bajos de alta presión para terrazas, clubes y eventos corporativos.' },
+      { id: 'snacks-perros', cat: 'snacks', catLabel: 'Snacks y Comida', specTag: '100 UNIDADES • OPERADOR Y SALSAS', title: 'Carrito de Perros Calientes (100 Unidades)', price: 150, priceText: '$150', duration: '4 Horas', img: 'img/catalogo/p08_img03.jpg', desc: 'Carrito con operador uniformado y 100 perros calientes preparados al momento con todas sus salsas.' },
+      { id: 'snacks-hamburguesas', cat: 'snacks', catLabel: 'Snacks y Comida', specTag: '60 UNIDADES • PREPARADAS AL MOMENTO', title: 'Estación de Hamburguesas (60 Unidades)', price: 150, priceText: '$150', duration: '4 Horas', img: 'img/catalogo/p08_img04.jpg', desc: '60 hamburguesas completas preparadas en vivo con queso, papas, salsas y operador.' },
+      { id: 'snacks-maquinas', cat: 'snacks', catLabel: 'Estación Dulce', specTag: 'MÍNIMO 50 UNIDADES POR MÁQUINA', title: 'Máquina de Cepillados, Algodón o Cotufas', price: 40, priceText: '$40 c/u', duration: '4 Horas', img: 'img/catalogo/p08_img01.jpg', desc: 'Alquiler por máquina (mínimo 50 unidades): cepillados, algodón de azúcar o cotufas recién hechas.' },
+      { id: 'snacks-algodon-cotufas', cat: 'snacks', catLabel: 'Estación Dulce', specTag: '2 MÁQUINAS • ALGODÓN + COTUFAS', title: 'Dúo Algodón de Azúcar + Cotufas', price: 80, priceText: '$80 (2 Máq.)', duration: '4 Horas', img: 'img/catalogo/p08_img02.jpg', desc: 'Combinación de 2 máquinas ($40 c/u, mín. 50 uds) atendidas por personal uniformado.' },
+      { id: 'snacks-barra', cat: 'snacks', catLabel: 'Barra Refrescante', specTag: 'REFRESCO • NESTEA • PAPELÓN CON LIMÓN', title: 'Barra Refrescante de Bebidas Atendida', price: 200, priceText: 'Desde $200', duration: '4 Horas', img: 'img/catalogo/p09_img01.jpg', desc: 'Barra atendida con refrescos, Nestea, papelón con limón, agua e hielo (desde $200 según cantidad).' },
+      { id: 'atrac-ninjawall', cat: 'atracciones', catLabel: 'Megainflable', specTag: 'DIMENSIONES: 12 × 9 METROS', title: 'Ninja Wall Gigante (12×9 metros)', price: 150, priceText: '$150', duration: '4 Horas', img: 'img/catalogo/p03_img02.jpg', desc: 'Imponente muro de escalada central con doble rampa deslizante de gran altura (12×9 m).' },
+      { id: 'atrac-saltoextremo', cat: 'atracciones', catLabel: 'Megainflable', specTag: 'DIMENSIONES: 11 × 9 METROS', title: 'Salto Extremo (11×9 metros)', price: 150, priceText: '$150', duration: '4 Horas', img: 'img/catalogo/p03_img03.jpg', desc: 'Atracción inflable de caída libre y doble carril de deslizamiento de 11×9 metros.' },
+      { id: 'atrac-carrera', cat: 'atracciones', catLabel: 'Pista de Obstáculos', specTag: 'LONGITUD: 13 METROS DE LARGO', title: 'Carrera Extrema (13 Metros de Largo)', price: 140, priceText: '$140', duration: '4 Horas', img: 'img/catalogo/p03_img06.jpg', desc: 'Circuito inflable de 13 metros con túneles, muros de escalada y tobogán final.' },
+      { id: 'atrac-duoslider', cat: 'atracciones', catLabel: 'Tobogán Doble', specTag: 'DIMENSIONES: 12 × 6 METROS', title: 'Duo Slider (12×6 metros)', price: 135, priceText: '$135', duration: '4 Horas', img: 'img/catalogo/p03_img04.jpg', desc: 'Tobogán inflable doble con arco superior iluminado y escalera central (12×6 m).' },
+      { id: 'atrac-tripletobogan', cat: 'atracciones', catLabel: 'Tobogán Triple', specTag: 'DIMENSIONES: 7 × 9 METROS', title: 'Triple Tobogán (7×9 metros)', price: 130, priceText: '$130', duration: '4 Horas', img: 'img/catalogo/p03_img01.jpg', desc: 'Tres rampas de caída simultánea con escalada central para máxima fluidez (7×9 m).' },
+      { id: 'atrac-dangerpunch', cat: 'atracciones', catLabel: 'Atracción Mecánica', specTag: 'BRAZO MECÁNICO GIRATORIO', title: 'Danger Punch (Derribo Giratorio)', price: 100, priceText: '$100', duration: '4 Horas', img: 'img/catalogo/p03_img05.jpg', desc: 'Colchón octogonal con brazo mecánico giratorio para competencias de salto y equilibrio.' },
+      { id: 'atrac-interactivo', cat: 'atracciones', catLabel: 'Inflable de Retos', specTag: 'DIMENSIONES: 10 × 3 METROS', title: 'Interactivo (10×3 metros)', price: 100, priceText: '$100', duration: '4 Horas', img: 'img/catalogo/p04_img05.jpg', desc: 'Estructura inflable de 10×3 metros para duelos dinámicos y competencias grupales.' },
+      { id: 'atrac-castillo7x6', cat: 'atracciones', catLabel: 'Castillo Inflable', specTag: 'DIMENSIONES: 7 × 6 METROS', title: 'Castillo Inflable Temático (7×6 metros)', price: 55, priceText: '$55', duration: '4 Horas', img: 'img/catalogo/p04_img03.jpg', desc: 'Amplio castillo inflable de 7×6 m con torres decorativas, área de salto y tobogán.' },
+      { id: 'atrac-castillo6x6', cat: 'atracciones', catLabel: 'Castillo Inflable', specTag: 'DIMENSIONES: 6 × 6 METROS', title: 'Castillo Inflable Doble Torre (6×6 metros)', price: 55, priceText: '$55', duration: '4 Horas', img: 'img/catalogo/p04_img04.jpg', desc: 'Castillo inflable multicolor de 6×6 metros con rampa de acceso y zona de rebote.' },
+      { id: 'atrac-castillo5x4', cat: 'atracciones', catLabel: 'Castillo Inflable', specTag: 'DIMENSIONES: 5 × 4 METROS', title: 'Castillo Inflable Clásico (5×4 metros)', price: 45, priceText: '$45', duration: '4 Horas', img: 'img/catalogo/p04_img02.jpg', desc: 'Castillo inflable compacto de 5×4 metros con deslizador frontal para salones y jardines.' },
+      { id: 'atrac-camaelastica', cat: 'atracciones', catLabel: 'Trampolín Seguro', specTag: 'MALLA PERIMETRAL + ESCALERA', title: 'Cama Elástica Protegida', price: 45, priceText: '$45', duration: '4 Horas', img: 'img/catalogo/p04_img01.jpg', desc: 'Cama elástica circular de alto rebote con malla protectora perimetral y escalera.' },
+      { id: 'gamer-completa', cat: 'gamer_gyncana', catLabel: 'Zona Gamer + VR', specTag: 'REALIDAD VIRTUAL + PLAYSTATION + XBOX', title: 'Zona Gamer Completa (VR + Play + Xbox)', price: 150, priceText: '$150', duration: '4 Horas', img: 'img/catalogo/p06_img02.jpg', desc: 'Estructura Truss iluminada con visores de Realidad Virtual 3D, consolas PlayStation y Xbox.' },
+      { id: 'gamer-vr', cat: 'gamer_gyncana', catLabel: 'Realidad Virtual 3D', specTag: 'VISORES VR 3D + SILLAS GAMER', title: 'Zona de Realidad Virtual Inmersiva', price: 90, priceText: '$90', duration: '4 Horas', img: 'img/catalogo/p06_img01.jpg', desc: 'Experiencia 3D con visores de Realidad Virtual, butacas gamer, pantalla en vivo y operador.' },
+      { id: 'gyncana-espuma', cat: 'gamer_gyncana', catLabel: 'Fiesta de Espuma', specTag: 'CAÑÓN DE ESPUMA DE ALTO CAUDAL', title: 'Máquina de Espuma Profesional', price: 90, priceText: '$90', duration: '4 Horas', img: 'img/catalogo/p05_img02.jpg', desc: 'Cañón generador de espuma hipoalergénica para fiestas acuáticas, piscinadas y colegios.' },
+      { id: 'gyncana-circuito', cat: 'gamer_gyncana', catLabel: 'Recreación y Gyncana', specTag: 'PISTA DESLIZANTE + RECREADORES', title: 'Gyncana Dirigida con Circuito y Animadores', price: 60, priceText: '$60', duration: '4 Horas', img: 'img/catalogo/p05_img01.jpg', desc: 'Juegos de competencia por equipos con pista deslizante, conos, retos y animación.' },
+      { id: 'mesas-juegos', cat: 'gamer_gyncana', catLabel: 'Mesas de Juegos', specTag: 'FUTBOLITO • PING PONG • BÁSQUETBOL', title: 'Mesas: Futbolito, Ping Pong o Básquet', price: 25, priceText: '$25 c/u', duration: '4 Horas', img: 'img/catalogo/p07_img01.jpg', desc: 'Alquiler individual ($25 c/u): mesa de futbolito profesional, ping pong o aro electrónico.' }
+    ];
+
+    let activeCategory = 'todos';
+    const selectedItems = new Map();
+
+    function renderCatalog() {
+      const grid = document.getElementById('catalogGrid');
+      const items = activeCategory === 'todos'
+        ? CATALOG_ITEMS
+        : CATALOG_ITEMS.filter(it => it.cat === activeCategory);
+
+      grid.innerHTML = items.map(item => {
+        const isSelected = selectedItems.has(item.id);
+        return `
+          <article class="luxury-card flex flex-col justify-between">
+            <div>
+              <div class="relative h-60 bg-[#080509] overflow-hidden cursor-pointer group" onclick="openLightbox('${item.img}', '${item.title.replace(/'/g, "\\'")}')">
+                <img src="${item.img}" alt="${item.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#09050b] via-transparent to-black/25"></div>
+                <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-md border border-white/15 text-[11px] font-semibold text-amber-200">
+                  ${item.catLabel}
+                </span>
+                <span class="absolute bottom-3.5 right-3.5 px-3.5 py-1 rounded-full bg-[#f4efe9] text-stone-950 font-extrabold text-sm shadow-lg">
+                  ${item.priceText}
+                </span>
+              </div>
+
+              <div class="p-6 space-y-2">
+                <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-300/90">${item.specTag}</div>
+                <h3 class="text-xl font-bold text-white leading-snug">${item.title}</h3>
+                <p class="text-xs sm:text-sm text-stone-300 leading-relaxed">${item.desc}</p>
+              </div>
+            </div>
+
+            <div class="px-6 pb-6 pt-3 border-t border-white/10 flex items-center justify-between">
+              <button onclick="toggleQuoteItem('${item.id}')" class="xapo-link">
+                <span class="underline-text ${isSelected ? 'text-emerald-400 !border-emerald-400' : ''}">
+                  ${isSelected ? '✓ Seleccionado en mi evento' : 'Agregar a mi evento'}
+                </span>
+                <span class="arrow-circle ${isSelected ? '!border-emerald-400 !bg-emerald-400 !text-black' : ''}">${isSelected ? '✓' : '+'}</span>
+              </button>
+
+              <a href="https://wa.me/584144246260?text=${encodeURIComponent('Hola Said, me interesa contratar: ' + item.title + ' (' + item.priceText + ' por 4 horas).')}" target="_blank" class="text-xs font-semibold text-stone-300 hover:text-amber-300 transition">
+                WhatsApp ↗
+              </a>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function filterCatalog(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('#catalogFilterBar .xapo-filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-cat') === cat);
+      });
+      renderCatalog();
+    }
+
+    function toggleQuoteItem(id) {
+      const item = CATALOG_ITEMS.find(it => it.id === id);
+      if (!item) return;
+      if (selectedItems.has(id)) selectedItems.delete(id);
+      else selectedItems.set(id, item);
+      renderCatalog();
+      updateQuoteBar();
+    }
+
+    function applyPreset(ids) {
+      selectedItems.clear();
+      ids.forEach(id => {
+        const it = CATALOG_ITEMS.find(x => x.id === id);
+        if (it) selectedItems.set(id, it);
+      });
+      renderCatalog();
+      updateQuoteBar();
+    }
+
+    function updateQuoteBar() {
+      const bar = document.getElementById('quoteBar');
+      const countBadge = document.getElementById('quoteCountBadge');
+      const totalEl = document.getElementById('quoteTotalUsd');
+
+      const count = selectedItems.size;
+      countBadge.textContent = count;
+
+      let sum = 0;
+      let hasCustom = false;
+      selectedItems.forEach(it => {
+        if (typeof it.price === 'number') sum += it.price;
+        else hasCustom = true;
+      });
+
+      totalEl.textContent = sum > 0
+        ? `$${sum}${hasCustom ? ' + A Medida' : ''}`
+        : (hasCustom ? 'A Medida' : '$0');
+
+      if (count > 0) {
+        bar.classList.remove('translate-y-40', 'opacity-0', 'pointer-events-none');
+      } else {
+        bar.classList.add('translate-y-40', 'opacity-0', 'pointer-events-none');
+      }
+    }
+
+    function clearQuote() {
+      selectedItems.clear();
+      renderCatalog();
+      updateQuoteBar();
+    }
+
+    function sendQuoteWhatsApp(target) {
+      const phone = target === 'fernando' ? '584144270723' : '584144246260';
+      const name = target === 'fernando' ? 'Fernando' : 'Said';
+      const lines = [];
+      let sum = 0;
+      selectedItems.forEach(it => {
+        lines.push(`• ${it.title} (${it.priceText})`);
+        if (typeof it.price === 'number') sum += it.price;
+      });
+      const msg = `Hola ${name}, armé mi paquete en el *Catálogo de SF Entretenimiento* (4 horas):\n\n` +
+                  lines.join('\n') +
+                  `\n\n*Total estimado:* $${sum} USD (más transporte según zona).\n¿Tienen disponibilidad para mi fecha?`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    let dropTimers = [];
+    function triggerTopDrop() {
+      dropTimers.forEach(t => clearTimeout(t));
+      dropTimers = [];
+      const stage = document.getElementById('xapoHeroStage');
+      stage.classList.remove('dropping', 'shake-impact');
+      stage.classList.add('primed');
+      void stage.offsetWidth;
+      stage.classList.add('dropping');
+
+      [560, 1160, 1760].forEach(ms => {
+        dropTimers.push(setTimeout(() => {
+          stage.classList.remove('shake-impact');
+          void stage.offsetWidth;
+          stage.classList.add('shake-impact');
+        }, ms));
+      });
+
+      dropTimers.push(setTimeout(() => {
+        stage.classList.remove('primed');
+      }, 2250));
+    }
+
+    function openLightbox(imgSrc, title) {
+      const modal = document.getElementById('lightboxModal');
+      document.getElementById('lightboxImg').src = imgSrc;
+      document.getElementById('lightboxTitle').textContent = title;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    /* High-Performance 60fps GPU Hardware-Accelerated Interactive Marquee */
+    function initInteractiveMarquee() {
+      const container = document.getElementById('interactiveMarquee');
+      const track = document.getElementById('marqueeTrack');
+      if (!container || !track) return;
+
+      let currentX = 0;
+      let targetX = 0;
+      let isDragging = false;
+      let startX = 0;
+      let prevDragX = 0;
+      let dragVelocity = 0;
+      const baseSpeed = 1.0; // Auto-scroll speed (pixels per frame)
+
+      // Ensure proper half-width calculation
+      let halfWidth = track.scrollWidth / 2;
+      window.addEventListener('resize', () => {
+        halfWidth = track.scrollWidth / 2;
+      });
+
+      function renderFrame() {
+        if (!isDragging) {
+          // Add drag momentum decay if flicked
+          if (Math.abs(dragVelocity) > 0.05) {
+            targetX += dragVelocity;
+            dragVelocity *= 0.94; // Smooth deceleration
+          } else {
+            dragVelocity = 0;
+            targetX -= baseSpeed; // Normal auto-scroll forward
+          }
+        }
+
+        // Smooth Lerp interpolation for ultra-silky movement
+        currentX += (targetX - currentX) * (isDragging ? 0.35 : 0.12);
+
+        // Seamless endless loop wrap
+        if (halfWidth > 0) {
+          while (currentX <= -halfWidth) {
+            currentX += halfWidth;
+            targetX += halfWidth;
+          }
+          while (currentX > 0) {
+            currentX -= halfWidth;
+            targetX -= halfWidth;
+          }
+        }
+
+        // Move purely via GPU translate3d (No scrollLeft sub-pixel jitter!)
+        track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+
+        requestAnimationFrame(renderFrame);
+      }
+      requestAnimationFrame(renderFrame);
+
+      // --- Pointer Events (Unified Touch, Mouse, Pen with native fluid momentum) ---
+      container.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        prevDragX = e.clientX;
+        dragVelocity = 0;
+        container.classList.add('is-dragging');
+        try { container.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+
+      container.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        const delta = e.clientX - prevDragX;
+        prevDragX = e.clientX;
+        targetX += delta * 1.15; // Responsive manual movement
+        dragVelocity = delta * 1.1; // Track flick velocity
+      });
+
+      function onPointerEnd(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        container.classList.remove('is-dragging');
+        try { container.releasePointerCapture(e.pointerId); } catch (_) {}
+      }
+
+      container.addEventListener('pointerup', onPointerEnd);
+      container.addEventListener('pointercancel', onPointerEnd);
+      container.addEventListener('pointerleave', (e) => {
+        if (e.pointerType === 'mouse') {
+          onPointerEnd(e);
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCatalog();
+      initInteractiveMarquee();
+      setTimeout(triggerTopDrop, 150);
+    });
+  </script>
+</body>
+</html>

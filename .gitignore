@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+*.env.*
+
+# Large Media & Archives
+*.zip
+*.tar
+*.gz
+*.rar
+*.mp4
+*.mov
+*.avi
+*.wmv
+reels/
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

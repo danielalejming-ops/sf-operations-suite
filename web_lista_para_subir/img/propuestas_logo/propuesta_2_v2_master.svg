@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgOctagonStudio" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#1A0409"/>
+      <stop offset="55%" stop-color="#080608"/>
+      <stop offset="100%" stop-color="#030305"/>
+    </radialGradient>
+
+    <radialGradient id="rubyGuilloche" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6E0A1E"/>
+      <stop offset="65%" stop-color="#38040E"/>
+      <stop offset="100%" stop-color="#1A0207"/>
+    </radialGradient>
+
+    <linearGradient id="gold24kBevel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF8E2"/>
+      <stop offset="25%" stop-color="#F0CF7B"/>
+      <stop offset="50%" stop-color="#AD7B20"/>
+      <stop offset="78%" stop-color="#FCE7AA"/>
+      <stop offset="100%" stop-color="#704B0D"/>
+    </linearGradient>
+
+    <linearGradient id="platinumBevel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="35%" stop-color="#E2E7F0"/>
+      <stop offset="65%" stop-color="#8A94A6"/>
+      <stop offset="100%" stop-color="#F5F7FA"/>
+    </linearGradient>
+
+    <filter id="octShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#000000" flood-opacity="0.92"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="1000" fill="url(#bgOctagonStudio)"/>
+
+  <!-- Precision-Milled Octagonal Medallion -->
+  <g filter="url(#octShadow)">
+    <!-- Outer 24k Gold Octagon -->
+    <polygon points="380,120 620,120 790,290 790,530 620,700 380,700 210,530 210,290"
+             fill="url(#gold24kBevel)" stroke="#FFF7DF" stroke-width="3"/>
+    <!-- Middle Platinum Trim Octagon -->
+    <polygon points="396,155 604,155 755,306 755,514 604,665 396,665 245,514 245,306"
+             fill="none" stroke="url(#platinumBevel)" stroke-width="10"/>
+    <!-- Inner Ruby Guilloché Core -->
+    <polygon points="405,172 595,172 738,315 738,505 595,648 405,648 262,505 262,315"
+             fill="url(#rubyGuilloche)" stroke="url(#gold24kBevel)" stroke-width="5"/>
+
+    <!-- Sculpted Dual-Metal SF Initials -->
+    <text x="422" y="502"
+          font-family="'Cinzel', 'Didot', 'Bodoni MT', serif"
+          font-size="265"
+          font-weight="700"
+          text-anchor="middle"
+          fill="url(#gold24kBevel)"
+          stroke="#FFF8E2"
+          stroke-width="2.5">S</text>
+
+    <text x="582" y="502"
+          font-family="'Cinzel', 'Didot', 'Bodoni MT', serif"
+          font-size="265"
+          font-weight="700"
+          text-anchor="middle"
+          fill="url(#platinumBevel)"
+          stroke="url(#gold24kBevel)"
+          stroke-width="3">F</text>
+  </g>
+
+  <!-- Bottom Typography -->
+  <line x1="250" y1="785" x2="750" y2="785" stroke="url(#gold24kBevel)" stroke-width="1.8" stroke-opacity="0.75"/>
+  <text x="500" y="848"
+        font-family="'Cinzel', 'Didot', serif"
+        font-size="44"
+        font-weight="700"
+        letter-spacing="12"
+        text-anchor="middle"
+        fill="url(#gold24kBevel)">SF ENTRETENIMIENTO</text>
+</svg>

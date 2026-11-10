@@ -1,0 +1,133 @@
+/* SF Entretenimiento - The Events Lounge Ultra-Luxury Master Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --lounge-bg: #14051c;
+  --lounge-bg-deep: #0c0211;
+  --lounge-bg-card: #20072b;
+  --lounge-purple: #9333ea;
+  --lounge-magenta: #c026d3;
+  --lounge-gold: #d4af37;
+  --lounge-gold-light: #fef08a;
+  --lounge-border: rgba(217, 70, 239, 0.2);
+  --lounge-border-gold: rgba(212, 175, 55, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--lounge-bg);
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Luxury Typography */
+.font-cormorant {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Signature The Events Lounge Glowing Hero Card */
+.card-lounge-primary {
+  background: linear-gradient(135deg, #7e22ce 0%, #9333ea 40%, #c026d3 100%);
+  box-shadow: 0 25px 60px -10px rgba(168, 85, 247, 0.45), 0 0 40px rgba(192, 38, 211, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Glassmorphism Luxury Paneling */
+.glass-lounge-card {
+  background: rgba(35, 9, 47, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--lounge-border);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-lounge-card:hover {
+  border-color: rgba(217, 70, 239, 0.55);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px -10px rgba(147, 51, 234, 0.3);
+}
+
+/* Gold Accents & Badges */
+.badge-gold {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+  border: 1px solid var(--lounge-border-gold);
+  color: var(--lounge-gold-light);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #fef08a 40%, #d4af37 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Smooth Luxury Buttons */
+.btn-lounge-white {
+  background: #ffffff;
+  color: #190623;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-lounge-white:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
+}
+
+.btn-lounge-outline {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.btn-lounge-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Elegant Dividers */
+.lounge-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #c026d3, #d4af37);
+  margin: 1rem auto;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--lounge-bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: #3b0d4d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9333ea;
+}

@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SF Entretenimiento, C.A. | Nuestro Catálogo — Sonido, Snacks, Inflables y Producción</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-obsidian: #070609;
+      --vinotinto-deep: #3b0412;
+      --vinotinto-mid: #680a22;
+      --gold-light: #fff6d1;
+      --gold-mid: #d4af37;
+      --gold-dark: #966d0f;
+      --silver-light: #f1f5f9;
+      --silver-mid: #cbd5e1;
+    }
+
+    body {
+      background-color: var(--bg-obsidian);
+      color: #f8fafc;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(ellipse at 50% 0%, rgba(104, 10, 34, 0.45) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 35%, rgba(212, 175, 55, 0.09) 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 35%, rgba(104, 10, 34, 0.30) 0%, transparent 50%),
+        linear-gradient(180deg, #070609 0%, #110409 48%, #070609 100%);
+    }
+
+    .font-editorial {
+      font-family: 'Cormorant Garamond', serif;
+      text-wrap: balance;
+    }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+    h1, h2, h3, h4 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+
+    /* Subtle Architectural Grid Overlay */
+    .arch-grid {
+      background-size: 64px 64px;
+      background-image:
+        linear-gradient(to right, rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+    }
+
+    .gold-metallic-text {
+      background: linear-gradient(135deg, #fff8db 0%, #edd077 32%, #d4af37 58%, #9a6f0f 85%, #f7e39c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .silver-metallic-text {
+      background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 45%, #94a3b8 80%, #f1f5f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .metallic-card {
+      background: linear-gradient(160deg, rgba(22, 19, 27, 0.94) 0%, rgba(48, 6, 18, 0.52) 50%, rgba(10, 9, 14, 0.97) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.34);
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .metallic-card:hover {
+      border-color: rgba(212, 175, 55, 0.82);
+      transform: translateY(-6px);
+      box-shadow: 0 30px 65px rgba(0, 0, 0, 0.95), 0 0 40px rgba(130, 14, 42, 0.38), 0 0 25px rgba(212, 175, 55, 0.22);
+    }
+
+    .vinotinto-plate {
+      background: linear-gradient(135deg, #58081c 0%, #2c040e 55%, #12080c 100%);
+      border: 1px solid rgba(212, 175, 55, 0.50);
+    }
+
+    .silver-pill {
+      background: linear-gradient(135deg, rgba(226, 232, 240, 0.13) 0%, rgba(148, 163, 184, 0.05) 100%);
+      border: 1px solid rgba(203, 213, 225, 0.34);
+      color: #e2e8f0;
+    }
+
+    /* Category Filter Dock Buttons */
+    .cat-btn {
+      position: relative;
+      background: linear-gradient(150deg, rgba(22, 19, 28, 0.95) 0%, rgba(12, 10, 16, 0.98) 100%);
+      border: 1px solid rgba(203, 213, 225, 0.20);
+      color: #cbd5e1;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cat-btn:hover {
+      border-color: rgba(212, 175, 55, 0.65);
+      color: #ffffff;
+      transform: translateY(-3px);
+    }
+    .cat-btn.active {
+      background: linear-gradient(135deg, #6e0b24 0%, #3a0412 52%, #180308 100%);
+      border: 1.5px solid #d4af37;
+      color: #ffffff;
+      box-shadow: 0 14px 35px rgba(104, 10, 34, 0.60), 0 0 25px rgba(212, 175, 55, 0.30), inset 0 1px 0 rgba(255, 243, 196, 0.40);
+    }
+
+    /* ==========================================================================
+       HEAVY GRAVITATIONAL DROP ANIMATION FOR REAL 3D LOGO LAYERS
+       ("Primero cae la S con fuerza, luego la F y después Entretenimiento")
+       ========================================================================== */
+    .anvil-stage {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 2px solid rgba(212, 175, 55, 0.72);
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.95),
+        0 0 60px rgba(104, 10, 34, 0.50),
+        inset 0 0 40px rgba(0, 0, 0, 0.8);
+      background: #08060a;
+      transform-style: preserve-3d;
+    }
+
+    .drop-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      will-change: transform, opacity, filter;
+    }
+
+    /* Pre-drop state (suspended high above the camera, huge & ready to fall) */
+    .anvil-stage.primed .layer-s,
+    .anvil-stage.primed .layer-f,
+    .anvil-stage.primed .layer-ent,
+    .anvil-stage.primed .layer-phones {
+      opacity: 0;
+      transform: translateY(-120%) scale(2.45);
+      filter: brightness(1.8) drop-shadow(0 40px 30px rgba(0,0,0,0.95));
+    }
+
+    /* Active Slam Animation Keyframes */
+    @keyframes slamDownHeavy {
+      0% {
+        opacity: 0;
+        transform: translateY(-125%) scale(2.55);
+        filter: brightness(1.9) blur(4px);
+      }
+      25% {
+        opacity: 1;
+        filter: brightness(1.6) blur(2px);
+      }
+      78% {
+        opacity: 1;
+        transform: translateY(0%) scale(1.00);
+        filter: brightness(1.5) drop-shadow(0 0 35px rgba(255, 230, 140, 0.95));
+      }
+      85% {
+        transform: translateY(-2.2%) scale(1.03);
+      }
+      92% {
+        transform: translateY(0%) scale(0.995);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0%) scale(1.00);
+        filter: brightness(1.05) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.85));
+      }
+    }
+
+    @keyframes anvilTremor {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      15% { transform: translate(-8px, 10px) rotate(-0.6deg); }
+      30% { transform: translate(7px, -8px) rotate(0.5deg); }
+      45% { transform: translate(-5px, 6px) rotate(-0.3deg); }
+      60% { transform: translate(4px, -4px) rotate(0.2deg); }
+      75% { transform: translate(-2px, 2px) rotate(0deg); }
+    }
+
+    @keyframes shockwaveRing {
+      0% {
+        opacity: 0.95;
+        transform: translate(-50%, -50%) scale(0.15);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2.35);
+      }
+    }
+
+    .anvil-stage.dropping .layer-s {
+      animation: slamDownHeavy 0.58s cubic-bezier(0.55, 0.05, 0.85, 0.25) 0.08s forwards;
+    }
+    .anvil-stage.dropping .layer-f {
+      animation: slamDownHeavy 0.58s cubic-bezier(0.55, 0.05, 0.85, 0.25) 0.62s forwards;
+    }
+    .anvil-stage.dropping .layer-ent {
+      animation: slamDownHeavy 0.56s cubic-bezier(0.55, 0.05, 0.85, 0.25) 1.16s forwards;
+    }
+    .anvil-stage.dropping .layer-phones {
+      animation: slamDownHeavy 0.52s cubic-bezier(0.55, 0.05, 0.85, 0.25) 1.48s forwards;
+    }
+
+    .shake-impact {
+      animation: anvilTremor 0.34s ease-out;
+    }
+
+    .shockwave-circle {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 238, 170, 0.9);
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.85), inset 0 0 25px rgba(212, 175, 55, 0.55);
+      pointer-events: none;
+      opacity: 0;
+      z-index: 30;
+    }
+    .shockwave-circle.fire {
+      animation: shockwaveRing 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes sheenSweep {
+      0% { transform: translateX(-140%) skewX(-25deg); }
+      40%, 100% { transform: translateX(240%) skewX(-25deg); }
+    }
+    .sheen-overlay::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 42%; height: 100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 246, 209, 0.26) 50%, transparent 100%);
+      animation: sheenSweep 5.2s infinite ease-in-out 2.1s;
+      pointer-events: none;
+      z-index: 35;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-[#680a22] selection:text-[#fff6d1] arch-grid">
+
+  <!-- TOP ARCHITECTURAL MARQUEE BAR -->
+  <div class="w-full bg-gradient-to-r from-[#070609] via-[#4a0718] to-[#070609] border-b border-amber-500/35 py-2.5 px-4 text-center text-[11px] tracking-[0.26em] uppercase text-slate-200">
+    <span class="text-amber-300 font-extrabold">SF ENTRETENIMIENTO, C.A.</span> &nbsp;◆&nbsp; VALENCIA • MARACAY • PUERTO CABELLO &nbsp;◆&nbsp;
+    <a href="tel:+584144246260" class="text-white hover:text-amber-300 font-bold underline decoration-amber-400/60">0414-424.62.60</a> /
+    <a href="tel:+584144270723" class="text-white hover:text-amber-300 font-bold underline decoration-amber-400/60">0414-427.07.23</a>
+  </div>
+
+  <!-- STICKY LUXURY HEADER WITH REAL 3D EMBLEM -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#070609]/95 border-b border-amber-500/25">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <a href="#inicio" class="flex items-center gap-2.5 sm:gap-3.5 group shrink-0">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full p-0.5 bg-gradient-to-br from-amber-300 via-amber-500 to-amber-800 shadow-[0_0_22px_rgba(212,175,55,0.35)] group-hover:scale-105 transition shrink-0">
+          <img src="img/sf_emblem_3d_square.jpg" alt="SF Entretenimiento Logo 3D" class="w-full h-full rounded-full object-cover" />
+        </div>
+        <div class="whitespace-nowrap">
+          <div class="text-xs sm:text-base font-extrabold tracking-[0.14em] sm:tracking-[0.20em] text-white uppercase leading-tight">SF ENTRETENIMIENTO</div>
+          <div class="text-[9px] sm:text-[11px] font-semibold tracking-[0.08em] sm:tracking-[0.16em] text-amber-300/90 uppercase mt-0.5">Producción Integral de Eventos</div>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2 whitespace-nowrap">
+        <a href="#catalogo" onclick="filterCatalog('sonido')" class="px-3.5 py-2 rounded-full text-xs font-bold tracking-[0.14em] uppercase text-slate-200 hover:text-amber-300 hover:bg-white/5 transition whitespace-nowrap">Sonido y LED</a>
+        <a href="#catalogo" onclick="filterCatalog('snacks')" class="px-3.5 py-2 rounded-full text-xs font-bold tracking-[0.14em] uppercase text-slate-200 hover:text-amber-300 hover:bg-white/5 transition whitespace-nowrap">Snacks y Barra</a>
+        <a href="#catalogo" onclick="filterCatalog('atracciones')" class="px-3.5 py-2 rounded-full text-xs font-bold tracking-[0.14em] uppercase text-slate-200 hover:text-amber-300 hover:bg-white/5 transition whitespace-nowrap">Atracciones</a>
+        <a href="#catalogo" onclick="filterCatalog('gamer_gyncana')" class="px-3.5 py-2 rounded-full text-xs font-bold tracking-[0.14em] uppercase text-slate-200 hover:text-amber-300 hover:bg-white/5 transition whitespace-nowrap">Zona Gamer y VR</a>
+        <a href="#contacto" class="px-3.5 py-2 rounded-full text-xs font-bold tracking-[0.14em] uppercase text-slate-200 hover:text-amber-300 hover:bg-white/5 transition whitespace-nowrap">Contacto</a>
+      </nav>
+
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="#catalogo" class="px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full vinotinto-plate text-[10px] sm:text-xs font-extrabold tracking-[0.12em] sm:tracking-[0.16em] uppercase text-amber-200 shadow-lg hover:brightness-125 transition whitespace-nowrap">
+          Ver Catálogo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       MONUMENTAL EDITORIAL HERO: "NUESTRO CATÁLOGO" + REAL 3D DROP LOGO
+       ======================================================================== -->
+  <section id="inicio" class="relative pt-10 pb-16 md:pt-14 md:pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+
+    <!-- 1. Centered Editorial Masthead -->
+    <div class="text-center max-w-4xl mx-auto mb-8 space-y-3">
+      <div class="inline-flex items-center gap-3 px-5 py-1.5 rounded-full vinotinto-plate">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-300"></span>
+        <span class="text-[10px] sm:text-xs font-bold tracking-[0.26em] uppercase text-amber-200">
+          SF ENTRETENIMIENTO, C.A. &nbsp;•&nbsp; MÁS DE 20 AÑOS DE TRAYECTORIA
+        </span>
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-300"></span>
+      </div>
+
+      <div class="flex items-center justify-center gap-4 pt-1">
+        <span class="hidden sm:block h-[1px] w-20 bg-gradient-to-r from-transparent to-amber-400/70"></span>
+        <p class="font-editorial italic text-xl sm:text-2xl text-slate-200 tracking-wide whitespace-normal sm:whitespace-nowrap">
+          Sonido Profesional, Pantallas LED, Snacks, Inflables y Zona Gamer
+        </p>
+        <span class="hidden sm:block h-[1px] w-20 bg-gradient-to-l from-transparent to-amber-400/70"></span>
+      </div>
+    </div>
+
+    <!-- 2. Centered Monumental 3D Logo Stage (No Side Text Columns, No Color Dots) -->
+    <div class="max-w-4xl mx-auto space-y-5">
+      <div id="heroAnvilStage" class="anvil-stage sheen-overlay aspect-[16/9] w-full select-none cursor-pointer" onclick="triggerHeavyLogoDrop()" title="Haz clic para repetir la caída con fuerza del logo">
+        <!-- Base Metallic Plate -->
+        <img src="img/logo_layers/base_plate.jpg" alt="Placa Metálica SF" class="drop-layer z-10" />
+
+        <!-- Shockwave Rings on Impact -->
+        <div id="shockS" class="shockwave-circle" style="left: 44%; top: 49%;"></div>
+        <div id="shockF" class="shockwave-circle" style="left: 57%; top: 49%;"></div>
+        <div id="shockEnt" class="shockwave-circle" style="left: 51%; top: 72%;"></div>
+
+        <!-- 1° Cae la S con fuerza -->
+        <img src="img/logo_layers/piece_s.png" alt="Letra S 3D" class="drop-layer layer-s z-20" />
+        <!-- 2° Cae la F con fuerza -->
+        <img src="img/logo_layers/piece_f.png" alt="Letra F 3D" class="drop-layer layer-f z-20" />
+        <!-- 3° Cae Entretenimiento con fuerza -->
+        <img src="img/logo_layers/piece_ent.png" alt="Entretenimiento 3D" class="drop-layer layer-ent z-20" />
+        <!-- 4° Teléfonos 3D -->
+        <img src="img/logo_layers/piece_phones.png" alt="Teléfonos 3D" class="drop-layer layer-phones z-20" />
+
+        <!-- Subtle Corner Gold Accents -->
+        <div class="absolute inset-2.5 rounded-2xl border border-amber-300/35 pointer-events-none z-30"></div>
+      </div>
+
+      <!-- Centered Replay Button -->
+      <div class="flex items-center justify-center">
+        <button onclick="triggerHeavyLogoDrop()" class="px-5 py-2.5 rounded-full vinotinto-plate text-[11px] font-extrabold tracking-[0.2em] uppercase text-amber-200 hover:brightness-125 transition flex items-center gap-2.5 shadow-lg">
+          <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+          Repetir Animación del Logo
+        </button>
+      </div>
+    </div>
+
+    <!-- 3. 4-Pillar Visual Bento Cards -->
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Pillar 1 -->
+      <a href="#catalogo" onclick="filterCatalog('sonido')" class="group relative h-52 rounded-3xl overflow-hidden metallic-card p-6 flex flex-col justify-between">
+        <img src="img/said_photos/WhatsApp Image 2026-11-03 at 08.19.27 (1).jpeg" alt="Sonido y Pantallas" class="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:scale-110 group-hover:opacity-50 transition duration-700" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#070609] via-[#1c030b]/75 to-transparent"></div>
+        <div class="relative z-10 flex items-center justify-between">
+          <span class="px-3 py-1 rounded-full vinotinto-plate text-[10px] font-extrabold tracking-[0.20em] uppercase text-amber-200">SECCIÓN I</span>
+          <span class="text-xs font-extrabold text-amber-300 tracking-wider">DESDE $100</span>
+        </div>
+        <div class="relative z-10">
+          <div class="font-editorial text-2xl xl:text-[26px] text-white font-semibold leading-snug mb-2 whitespace-nowrap">Sonido y Pantallas</div>
+          <div class="text-[11px] text-slate-300 tracking-wider uppercase font-semibold flex items-center justify-between whitespace-nowrap">
+            <span>8 Montajes</span>
+            <span class="text-amber-300 group-hover:translate-x-1 transition">Explorar →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Pillar 2 -->
+      <a href="#catalogo" onclick="filterCatalog('snacks')" class="group relative h-52 rounded-3xl overflow-hidden metallic-card p-6 flex flex-col justify-between">
+        <img src="img/catalogo/p08_img03.jpg" alt="Snacks y Barra" class="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:scale-110 group-hover:opacity-50 transition duration-700" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#070609] via-[#1c030b]/75 to-transparent"></div>
+        <div class="relative z-10 flex items-center justify-between">
+          <span class="px-3 py-1 rounded-full vinotinto-plate text-[10px] font-extrabold tracking-[0.20em] uppercase text-amber-200">SECCIÓN II</span>
+          <span class="text-xs font-extrabold text-amber-300 tracking-wider">DESDE $40</span>
+        </div>
+        <div class="relative z-10">
+          <div class="font-editorial text-2xl xl:text-[26px] text-white font-semibold leading-snug mb-2 whitespace-nowrap">Snacks y Barra</div>
+          <div class="text-[11px] text-slate-300 tracking-wider uppercase font-semibold flex items-center justify-between whitespace-nowrap">
+            <span>5 Estaciones</span>
+            <span class="text-amber-300 group-hover:translate-x-1 transition">Explorar →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Pillar 3 -->
+      <a href="#catalogo" onclick="filterCatalog('atracciones')" class="group relative h-52 rounded-3xl overflow-hidden metallic-card p-6 flex flex-col justify-between">
+        <img src="img/catalogo/p03_img02.jpg" alt="Atracciones e Inflables" class="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:scale-110 group-hover:opacity-50 transition duration-700" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#070609] via-[#1c030b]/75 to-transparent"></div>
+        <div class="relative z-10 flex items-center justify-between">
+          <span class="px-3 py-1 rounded-full vinotinto-plate text-[10px] font-extrabold tracking-[0.20em] uppercase text-amber-200">SECCIÓN III</span>
+          <span class="text-xs font-extrabold text-amber-300 tracking-wider">DESDE $45</span>
+        </div>
+        <div class="relative z-10">
+          <div class="font-editorial text-2xl xl:text-[26px] text-white font-semibold leading-snug mb-2 whitespace-nowrap">Inflables y Mecánicos</div>
+          <div class="text-[11px] text-slate-300 tracking-wider uppercase font-semibold flex items-center justify-between whitespace-nowrap">
+            <span>11 Atracciones</span>
+            <span class="text-amber-300 group-hover:translate-x-1 transition">Explorar →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Pillar 4 -->
+      <a href="#catalogo" onclick="filterCatalog('gamer_gyncana')" class="group relative h-52 rounded-3xl overflow-hidden metallic-card p-6 flex flex-col justify-between">
+        <img src="img/catalogo/p06_img02.jpg" alt="Zona Gamer y Gyncana" class="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:scale-110 group-hover:opacity-50 transition duration-700" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#070609] via-[#1c030b]/75 to-transparent"></div>
+        <div class="relative z-10 flex items-center justify-between">
+          <span class="px-3 py-1 rounded-full vinotinto-plate text-[10px] font-extrabold tracking-[0.20em] uppercase text-amber-200">SECCIÓN IV</span>
+          <span class="text-xs font-extrabold text-amber-300 tracking-wider">DESDE $25</span>
+        </div>
+        <div class="relative z-10">
+          <div class="font-editorial text-2xl xl:text-[26px] text-white font-semibold leading-snug mb-2 whitespace-nowrap">Zona Gamer y VR</div>
+          <div class="text-[11px] text-slate-300 tracking-wider uppercase font-semibold flex items-center justify-between whitespace-nowrap">
+            <span>5 Experiencias</span>
+            <span class="text-amber-300 group-hover:translate-x-1 transition">Explorar →</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- ========================================================================
+       INTERACTIVE CATALOG SECTION WITH SECTION BUTTONS & COMBO PRESETS
+       ======================================================================== -->
+  <section id="catalogo" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-amber-500/25">
+
+    <div class="mb-8 space-y-2">
+      <div class="text-xs font-bold tracking-[0.34em] uppercase text-amber-400">
+        TARIFARIO OFICIAL TRANSPARENTE &nbsp;•&nbsp; BLOQUES DE 4 HORAS
+      </div>
+      <h2 class="font-editorial font-light text-4xl sm:text-6xl text-white leading-none">
+        Colección de Servicios <span class="font-playfair italic gold-metallic-text">&amp; Precios.</span>
+      </h2>
+    </div>
+
+    <!-- ORGANIZED 3-COLUMN QUICK COMBOS BAR -->
+    <div class="mb-10">
+      <div class="text-[11px] font-bold tracking-[0.26em] uppercase text-amber-300/90 mb-3 flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+        PAQUETES Y COMBOS RÁPIDOS SUGERIDOS (SELECCIÓN EN 1 CLIC)
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <button onclick="applyPreset(['sonido-1p', 'atrac-castillo6x6', 'snacks-perros'])" class="metallic-card rounded-2xl p-5 text-left flex flex-col justify-between group hover:border-amber-400 transition">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-[10px] font-extrabold tracking-[0.22em] uppercase text-amber-300">COMBO 01 • INFANTIL</span>
+              <span class="px-2.5 py-0.5 rounded-lg vinotinto-plate font-editorial font-bold text-xl text-amber-200">$305</span>
+            </div>
+            <div class="font-editorial text-2xl font-bold text-white">Fiesta Infantil Completa</div>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed">Sonido con 1 Pantalla + Castillo Inflable (6×6m) + 100 Perros Calientes.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] font-bold tracking-wider uppercase text-amber-300">
+            <span>3 Servicios • 4 Horas</span>
+            <span class="group-hover:translate-x-1 transition">+ Seleccionar Combo →</span>
+          </div>
+        </button>
+
+        <button onclick="applyPreset(['chamoteca-2p', 'gamer-completa', 'snacks-perros', 'snacks-algodon-cotufas'])" class="metallic-card rounded-2xl p-5 text-left flex flex-col justify-between group hover:border-amber-400 transition">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-[10px] font-extrabold tracking-[0.22em] uppercase text-amber-300">COMBO 02 • JUVENIL &amp; VR</span>
+              <span class="px-2.5 py-0.5 rounded-lg vinotinto-plate font-editorial font-bold text-xl text-amber-200">$500</span>
+            </div>
+            <div class="font-editorial text-2xl font-bold text-white">Teen / Chamoteca + Zona Gamer</div>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed">Chamoteca 2 Pantallas + Zona Gamer (VR/Play/Xbox) + 100 Perros + Algodón y Cotufas.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] font-bold tracking-wider uppercase text-amber-300">
+            <span>4 Servicios • 4 Horas</span>
+            <span class="group-hover:translate-x-1 transition">+ Seleccionar Combo →</span>
+          </div>
+        </button>
+
+        <button onclick="applyPreset(['sonido-3p', 'snacks-barra', 'snacks-hamburguesas'])" class="metallic-card rounded-2xl p-5 text-left flex flex-col justify-between group hover:border-amber-400 transition">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="text-[10px] font-extrabold tracking-[0.22em] uppercase text-amber-300">COMBO 03 • EVENTO SOCIAL</span>
+              <span class="px-2.5 py-0.5 rounded-lg vinotinto-plate font-editorial font-bold text-xl text-amber-200">$500</span>
+            </div>
+            <div class="font-editorial text-2xl font-bold text-white">Gala Social &amp; Celebración</div>
+            <p class="text-xs text-slate-300 mt-1 leading-relaxed">Sonido Especial con 3 Pantallas + Barra Refrescante + 60 Hamburguesas.</p>
+          </div>
+          <div class="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] font-bold tracking-wider uppercase text-amber-300">
+            <span>3 Servicios • 4 Horas</span>
+            <span class="group-hover:translate-x-1 transition">+ Seleccionar Combo →</span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- SECTION FILTER DOCK (Said's Audio Web Specification) -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-10" id="catalogFilterBar">
+      <button onclick="filterCatalog('todos')" data-cat="todos" class="cat-btn active rounded-2xl p-4 text-left flex flex-col justify-between">
+        <span class="text-[10px] font-bold tracking-[0.22em] uppercase text-amber-300">CATÁLOGO COMPLETO</span>
+        <span class="font-editorial text-xl xl:text-2xl font-bold text-white mt-0.5 whitespace-nowrap">Todos los Servicios</span>
+        <span class="text-[11px] text-slate-300 mt-1 whitespace-nowrap">29 opciones disponibles</span>
+      </button>
+
+      <button onclick="filterCatalog('sonido')" data-cat="sonido" class="cat-btn rounded-2xl p-4 text-left flex flex-col justify-between">
+        <span class="text-[10px] font-bold tracking-[0.22em] uppercase text-amber-300">SECCIÓN I</span>
+        <span class="font-editorial text-xl xl:text-2xl font-bold text-white mt-0.5 whitespace-nowrap">Sonido y Pantallas</span>
+        <span class="text-[11px] text-slate-300 mt-1 whitespace-nowrap">$100 – $150 • 8 Montajes</span>
+      </button>
+
+      <button onclick="filterCatalog('snacks')" data-cat="snacks" class="cat-btn rounded-2xl p-4 text-left flex flex-col justify-between">
+        <span class="text-[10px] font-bold tracking-[0.22em] uppercase text-amber-300">SECCIÓN II</span>
+        <span class="font-editorial text-xl xl:text-2xl font-bold text-white mt-0.5 whitespace-nowrap">Snacks y Barra</span>
+        <span class="text-[11px] text-slate-300 mt-1 whitespace-nowrap">Perros, Hamburguesas, Barra</span>
+      </button>
+
+      <button onclick="filterCatalog('atracciones')" data-cat="atracciones" class="cat-btn rounded-2xl p-4 text-left flex flex-col justify-between">
+        <span class="text-[10px] font-bold tracking-[0.22em] uppercase text-amber-300">SECCIÓN III</span>
+        <span class="font-editorial text-xl xl:text-2xl font-bold text-white mt-0.5 whitespace-nowrap">Inflables y Mecánicos</span>
+        <span class="text-[11px] text-slate-300 mt-1 whitespace-nowrap">$45 – $150 • 11 Opciones</span>
+      </button>
+
+      <button onclick="filterCatalog('gamer_gyncana')" data-cat="gamer_gyncana" class="cat-btn rounded-2xl p-4 text-left flex flex-col justify-between col-span-2 md:col-span-1">
+        <span class="text-[10px] font-bold tracking-[0.22em] uppercase text-amber-300">SECCIÓN IV</span>
+        <span class="font-editorial text-xl xl:text-2xl font-bold text-white mt-0.5 whitespace-nowrap">Zona Gamer y VR</span>
+        <span class="text-[11px] text-slate-300 mt-1 whitespace-nowrap">$25 – $150 • VR, Espuma, Mesas</span>
+      </button>
+    </div>
+
+    <!-- CATALOG DYNAMIC GRID -->
+    <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+
+    <!-- OFFICIAL CATALOG FOOTER NOTE -->
+    <div class="mt-12 p-7 sm:p-9 rounded-3xl vinotinto-plate flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1.5 text-center md:text-left">
+        <div class="text-xs font-bold tracking-[0.28em] uppercase text-amber-300">CONDICIONES OFICIALES DEL CATÁLOGO</div>
+        <div class="font-editorial text-2xl sm:text-3xl text-white">
+          «Todos los precios están expresados para un tiempo de <span class="gold-metallic-text font-semibold">4 horas</span>. El costo del transporte dependerá de la zona.»
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-3 shrink-0">
+        <a href="catalogo_de_precios_sf_2.pdf" target="_blank" class="px-5 py-3 rounded-xl silver-pill text-xs font-bold tracking-[0.18em] uppercase hover:border-amber-400 transition">
+          Descargar PDF Original
+        </a>
+        <a href="https://wa.me/584144246260?text=Hola%20Said,%20quiero%20consultar%20disponibilidad%20y%20transporte%20para%20mi%20evento." target="_blank" class="px-5 py-3 rounded-xl bg-gradient-to-r from-[#d4af37] via-[#f5e2a8] to-[#aa7c11] text-black text-xs font-extrabold tracking-[0.18em] uppercase hover:brightness-110 transition">
+          Cotizar Transporte por Zona
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       EXECUTIVE DIRECT CONTACT SECTION (CLEAN, NO REEL/3D LOGO BOXES)
+       ======================================================================== -->
+  <section id="contacto" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-amber-500/25">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      <div class="inline-block px-4 py-1.5 rounded-full vinotinto-plate text-[11px] font-bold tracking-[0.28em] uppercase text-amber-300">
+        ATENCIÓN DIRECTA • VALENCIA, MARACAY Y PUERTO CABELLO
+      </div>
+      <h2 class="font-editorial font-light text-4xl sm:text-6xl text-white leading-[1.02]">
+        Puesta en escena <span class="font-playfair italic gold-metallic-text">sin límites.</span>
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-light">
+        Contáctanos directamente para reservar tu fecha, consultar disponibilidad de equipos o solicitar presupuesto de transporte según la zona de tu evento.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4 max-w-2xl mx-auto">
+        <a href="https://wa.me/584144246260?text=Hola%20Said,%20quiero%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20SF%20Entretenimiento." target="_blank" class="p-6 rounded-2xl metallic-card text-center space-y-1.5 group">
+          <div class="text-[11px] font-bold tracking-[0.24em] uppercase text-amber-300">SAID</div>
+          <div class="font-editorial font-bold text-3xl text-white group-hover:text-amber-300 transition">0414-424.62.60</div>
+          <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Escribir por WhatsApp →</div>
+        </a>
+        <a href="https://wa.me/584144270723?text=Hola%20Fernando,%20quiero%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20SF%20Entretenimiento." target="_blank" class="p-6 rounded-2xl metallic-card text-center space-y-1.5 group">
+          <div class="text-[11px] font-bold tracking-[0.24em] uppercase text-amber-300">FERNANDO</div>
+          <div class="font-editorial font-bold text-3xl text-white group-hover:text-amber-300 transition">0414-427.07.23</div>
+          <div class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Escribir por WhatsApp →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-amber-500/25 bg-[#050407] py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full p-0.5 bg-gradient-to-br from-amber-300 to-amber-700">
+          <img src="img/sf_emblem_3d_square.jpg" alt="SF" class="w-full h-full rounded-full object-cover" />
+        </div>
+        <div>
+          <div class="text-sm font-extrabold tracking-[0.22em] text-white uppercase">SF ENTRETENIMIENTO, C.A.</div>
+          <div class="text-xs text-slate-400">RIF J-30881461-0 • Valencia • Maracay • Puerto Cabello</div>
+        </div>
+      </div>
+      <div class="text-xs text-slate-300 space-y-1">
+        <div><strong class="text-amber-300">Said:</strong> 0414-424.62.60 &nbsp;|&nbsp; <strong class="text-amber-300">Fernando:</strong> 0414-427.07.23</div>
+        <div class="text-slate-400">Instagram: @sfentretenimiento1 • @sfeventos.especiales</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING EVENT QUOTE BUILDER BAR -->
+  <div id="quoteBar" class="fixed bottom-4 inset-x-4 max-w-5xl mx-auto z-50 rounded-2xl vinotinto-plate p-4 shadow-[0_20px_60px_rgba(0,0,0,0.95)] border-2 border-amber-400/70 transition-all duration-300 translate-y-40 opacity-0 pointer-events-none">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3.5">
+        <div class="w-11 h-11 rounded-xl bg-amber-400 text-black font-extrabold flex items-center justify-center text-lg" id="quoteCountBadge">0</div>
+        <div>
+          <div class="text-xs font-bold tracking-[0.2em] uppercase text-amber-200">MI PRESUPUESTO SF (4 HORAS)</div>
+          <div class="text-sm sm:text-base font-extrabold text-white">
+            Total Estimado: <span id="quoteTotalUsd" class="text-amber-300 text-lg">$0</span> <span class="text-xs font-normal text-slate-300">+ transporte según zona</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center gap-2.5 w-full sm:w-auto justify-end">
+        <button onclick="clearQuote()" class="px-3 py-2 rounded-lg border border-white/20 text-[11px] font-semibold uppercase tracking-wider text-slate-200 hover:bg-white/10">
+          Limpiar
+        </button>
+        <button onclick="sendQuoteWhatsApp('said')" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#d4af37] via-[#f5e2a8] to-[#aa7c11] text-black font-extrabold text-xs tracking-wider uppercase shadow-lg">
+          Enviar a Said (0414-424.62.60)
+        </button>
+        <button onclick="sendQuoteWhatsApp('fernando')" class="px-4 py-2.5 rounded-xl silver-pill font-bold text-xs tracking-wider uppercase hover:text-white">
+          Enviar a Fernando
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FULL PHOTO LIGHTBOX MODAL -->
+  <div id="lightboxModal" onclick="closeLightbox()" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="max-w-4xl w-full bg-[#110d16] border border-amber-400/50 rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10">
+        <div id="lightboxTitle" class="font-editorial text-2xl text-white font-semibold"></div>
+        <button onclick="closeLightbox()" class="w-9 h-9 rounded-full silver-pill flex items-center justify-center text-sm font-bold">✕</button>
+      </div>
+      <div class="p-4 flex items-center justify-center bg-black max-h-[75vh]">
+        <img id="lightboxImg" src="" alt="Vista ampliada" class="max-h-[70vh] w-auto object-contain rounded-xl" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const CATALOG_ITEMS = [
+      // SECCIÓN I: SONIDO, PANTALLAS LED Y ANIMACIÓN
+      {
+        id: 'sonido-1p',
+        cat: 'sonido',
+        catLabel: 'Sonido y Animación',
+        specTag: '1 PANTALLA HD • SONIDO • ANIMADOR',
+        title: 'Animación con Sonido + 1 Pantalla',
+        price: 100,
+        priceText: '$100',
+        duration: '4 Horas',
+        img: 'img/catalogo/p02_img01.jpg',
+        desc: 'Sistema de sonido profesional, 1 pantalla HD en estructura vertical y animador en vivo durante 4 horas.'
+      },
+      {
+        id: 'sonido-2p',
+        cat: 'sonido',
+        catLabel: 'Sonido y Animación',
+        specTag: '2 PANTALLAS HD • SONIDO • ANIMADOR',
+        title: 'Animación con Sonido + 2 Pantallas',
+        price: 110,
+        priceText: '$110',
+        duration: '4 Horas',
+        img: 'img/catalogo/p02_img03.jpg',
+        desc: 'Cabina iluminada, sistema de sonido, 2 pantallas HD en tótems de estructura e iluminación con animador.'
+      },
+      {
+        id: 'chamoteca-2p',
+        cat: 'sonido',
+        catLabel: 'Sonido y Chamoteca',
+        specTag: '2 PANTALLAS • DJ EN VIVO • LUCES',
+        title: 'Chamoteca con 2 Pantallas, DJ, Animador y Luces',
+        price: 120,
+        priceText: '$120',
+        duration: '4 Horas',
+        img: 'img/catalogo/p02_img02.jpg',
+        desc: 'Montaje completo de chamoteca con 2 pantallas HD, DJ en vivo, animador e iluminación rítmica.'
+      },
+      {
+        id: 'sonido-3p',
+        cat: 'sonido',
+        catLabel: 'Sonido Especial',
+        specTag: '3 PANTALLAS HD • DJ • SHOW DE LUCES',
+        title: 'Sonido Especial con 3 Pantallas, DJ, Animador y Luces',
+        price: 150,
+        priceText: '$150',
+        duration: '4 Horas',
+        img: 'img/catalogo/p02_img04.jpg',
+        desc: 'Despliegue superior con 3 pantallas HD en estructura iluminada, DJ en vivo, animador y show de luces.'
+      },
+      {
+        id: 'elite-totems',
+        cat: 'sonido',
+        catLabel: 'Producción de Gala',
+        specTag: '3 TÓTEMS VERTICALES • TUBOS LED CIAN',
+        title: 'Cabina DJ con 3 Tótems Verticales y Tubos LED',
+        price: null,
+        priceText: 'A Medida',
+        duration: 'Bodas / Galas',
+        img: 'img/said_photos/WhatsApp Image 2026-11-03 at 08.19.27 (1).jpeg',
+        desc: 'Escenografía moderna con 3 pantallas verticales en la cabina, tubos LED cian y cabezas móviles Beam.'
+      },
+      {
+        id: 'elite-infinity',
+        cat: 'sonido',
+        catLabel: 'Pista LED 3D',
+        specTag: 'PISTA INFINITY 3D • 3 PANTALLAS',
+        title: 'Pista de Baile LED Infinity 3D + Escenario Simétrico',
+        price: null,
+        priceText: 'A Medida',
+        duration: 'Bodas / 15 Años',
+        img: 'img/said_photos/WhatsApp Image 2026-11-03 at 08.19.29 (2).jpeg',
+        desc: 'Pista de cristal luminoso con efecto abismo infinito en 3D acompañada de escenario de 3 pantallas.'
+      },
+      {
+        id: 'elite-xv',
+        cat: 'sonido',
+        catLabel: '15 Años y Bodas',
+        specTag: 'VISUALES A MEDIDA • ILUMINACIÓN GALA',
+        title: 'Escenario «Mis XV Años» con Visuales Personalizados',
+        price: null,
+        priceText: 'A Medida',
+        duration: 'Gala Completa',
+        img: 'img/said_photos/WhatsApp Image 2026-11-03 at 08.19.27.jpeg',
+        desc: 'Diseño visual personalizado en pantallas HD, iluminación arquitectónica y efectos para el gran vals.'
+      },
+      {
+        id: 'elite-linearray',
+        cat: 'sonido',
+        catLabel: 'Sonido Concierto',
+        specTag: 'SISTEMA LINE ARRAY • SUBGRAVES • PLANTA',
+        title: 'Sistema Line Array Exterior + Subgraves de Alta Presión',
+        price: null,
+        priceText: 'A Medida',
+        duration: 'Grandes Eventos',
+        img: 'img/said_photos/WhatsApp Image 2026-11-03 at 08.19.28 (1).jpeg',
+        desc: 'Torres Line Array y bajos de alto rendimiento para terrazas, clubes y eventos corporativos masivos.'
+      },
+
+      // SECCIÓN II: SNACKS, PERROS CALIENTES, HAMBURGUESAS Y BARRA
+      {
+        id: 'snacks-perros',
+        cat: 'snacks',
+        catLabel: 'Snacks y Comida',
+        specTag: '100 UNIDADES • OPERADOR Y SALSAS',
+        title: 'Carrito de Perros Calientes (100 Unidades)',
+        price: 150,
+        priceText: '$150',
+        duration: '4 Horas',
+        img: 'img/catalogo/p08_img03.jpg',
+        desc: 'Carrito con operador uniformado, 100 perros calientes preparados al momento con todas sus salsas y toppings.'
+      },
+      {
+        id: 'snacks-hamburguesas',
+        cat: 'snacks',
+        catLabel: 'Snacks y Comida',
+        specTag: '60 UNIDADES • PREPARADAS AL MOMENTO',
+        title: 'Estación de Hamburguesas (60 Unidades)',
+        price: 150,
+        priceText: '$150',
+        duration: '4 Horas',
+        img: 'img/catalogo/p08_img04.jpg',
+        desc: '60 hamburguesas completas preparadas en el evento con salsas Heinz, queso, papas y atención personalizada.'
+      },
+      {
+        id: 'snacks-maquinas',
+        cat: 'snacks',
+        catLabel: 'Estación Dulce',
+        specTag: 'MÍNIMO 50 UNIDADES POR MÁQUINA',
+        title: 'Máquina de Cepillados, Algodón de Azúcar o Cotufas',
+        price: 40,
+        priceText: '$40 c/u',
+        duration: '4 Horas',
+        img: 'img/catalogo/p08_img01.jpg',
+        desc: 'Alquiler por máquina (mínimo 50 unidades): cepillados de sabores, algodón de azúcar o cotufas recién hechas.'
+      },
+      {
+        id: 'snacks-algodon-cotufas',
+        cat: 'snacks',
+        catLabel: 'Estación Dulce',
+        specTag: '2 MÁQUINAS • ALGODÓN + COTUFAS',
+        title: 'Dúo Algodón de Azúcar + Cotufas con Operador',
+        price: 80,
+        priceText: '$80 (2 Máq.)',
+        duration: '4 Horas',
+        img: 'img/catalogo/p08_img02.jpg',
+        desc: 'Combinación de 2 máquinas ($40 c/u, mín. 50 uds) atendidas por personal uniformado de SF Entretenimiento.'
+      },
+      {
+        id: 'snacks-barra',
+        cat: 'snacks',
+        catLabel: 'Barra Refrescante',
+        specTag: 'REFRESCO • NESTEA • PAPELÓN CON LIMÓN',
+        title: 'Barra Refrescante de Bebidas Atendida',
+        price: 200,
+        priceText: 'Desde $200',
+        duration: '4 Horas',
+        img: 'img/catalogo/p09_img01.jpg',
+        desc: 'Barra atendida con refrescos, Nestea, papelón con limón, agua e hielo (desde $200 según cantidades).'
+      },
+
+      // SECCIÓN III: ATRACCIONES Y COLCHONES INFLABLES
+      {
+        id: 'atrac-ninjawall',
+        cat: 'atracciones',
+        catLabel: 'Megainflable',
+        specTag: 'DIMENSIONES: 12 × 9 METROS',
+        title: 'Ninja Wall Gigante (12×9 metros)',
+        price: 150,
+        priceText: '$150',
+        duration: '4 Horas',
+        img: 'img/catalogo/p03_img02.jpg',
+        desc: 'Imponente muro de escalada central con doble rampa deslizante de gran altura (12×9 m).'
+      },
+      {
+        id: 'atrac-saltoextremo',
+        cat: 'atracciones',
+        catLabel: 'Megainflable',
+        specTag: 'DIMENSIONES: 11 × 9 METROS',
+        title: 'Salto Extremo (11×9 metros)',
+        price: 150,
+        priceText: '$150',
+        duration: '4 Horas',
+        img: 'img/catalogo/p03_img03.jpg',
+        desc: 'Atracción inflable de caída libre y doble carril de deslizamiento de 11×9 metros.'
+      },
+      {
+        id: 'atrac-carrera',
+        cat: 'atracciones',
+        catLabel: 'Pista de Obstáculos',
+        specTag: 'LONGITUD: 13 METROS DE LARGO',
+        title: 'Carrera Extrema (13 Metros de Largo)',
+        price: 140,
+        priceText: '$140',
+        duration: '4 Horas',
+        img: 'img/catalogo/p03_img06.jpg',
+        desc: 'Circuito inflable de 13 metros de longitud con túneles, muros de escalada y tobogán final.'
+      },
+      {
+        id: 'atrac-duoslider',
+        cat: 'atracciones',
+        catLabel: 'Tobogán Doble',
+        specTag: 'DIMENSIONES: 12 × 6 METROS',
+        title: 'Duo Slider (12×6 metros)',
+        price: 135,
+        priceText: '$135',
+        duration: '4 Horas',
+        img: 'img/catalogo/p03_img04.jpg',
+        desc: 'Tobogán inflable doble con arco superior iluminado y escalera central (12×6 m).'
+      },
+      {
+        id: 'atrac-tripletobogan',
+        cat: 'atracciones',
+        catLabel: 'Tobogán Triple',
+        specTag: 'DIMENSIONES: 7 × 9 METROS',
+        title: 'Triple Tobogán (7×9 metros)',
+        price: 130,
+        priceText: '$130',
+        duration: '4 Horas',
+        img: 'img/catalogo/p03_img01.jpg',
+        desc: 'Tres rampas de caída simultánea con escalada central para máxima fluidez de invitados (7×9 m).'
+      },
+      {
+        id: 'atrac-dangerpunch',
+        cat: 'atracciones',
+        catLabel: 'Atracción Mecánica',
+        specTag: 'BRAZO MECÁNICO GIRATORIO',
+        title: 'Danger Punch (Derribo Giratorio)',
+        price: 100,
+        priceText: '$100',
+        duration: '4 Horas',
+        img: 'img/catalogo/p03_img05.jpg',
+        desc: 'Colchón octogonal con brazo mecánico giratorio para competencias de salto, reflejos y equilibrio.'
+      },
+      {
+        id: 'atrac-interactivo',
+        cat: 'atracciones',
+        catLabel: 'Inflable de Retos',
+        specTag: 'DIMENSIONES: 10 × 3 METROS',
+        title: 'Interactivo (10×3 metros)',
+        price: 100,
+        priceText: '$100',
+        duration: '4 Horas',
+        img: 'img/catalogo/p04_img05.jpg',
+        desc: 'Estructura inflable de 10×3 metros para duelos dinámicos y competencias grupales.'
+      },
+      {
+        id: 'atrac-castillo7x6',
+        cat: 'atracciones',
+        catLabel: 'Castillo Inflable',
+        specTag: 'DIMENSIONES: 7 × 6 METROS',
+        title: 'Castillo Inflable Temático (7×6 metros)',
+        price: 55,
+        priceText: '$55',
+        duration: '4 Horas',
+        img: 'img/catalogo/p04_img03.jpg',
+        desc: 'Amplio castillo inflable de 7×6 m con torres decorativas, área de salto y tobogán lateral.'
+      },
+      {
+        id: 'atrac-castillo6x6',
+        cat: 'atracciones',
+        catLabel: 'Castillo Inflable',
+        specTag: 'DIMENSIONES: 6 × 6 METROS',
+        title: 'Castillo Inflable Doble Torre (6×6 metros)',
+        price: 55,
+        priceText: '$55',
+        duration: '4 Horas',
+        img: 'img/catalogo/p04_img04.jpg',
+        desc: 'Castillo inflable multicolor de 6×6 metros con rampa de acceso y zona de rebote segura.'
+      },
+      {
+        id: 'atrac-castillo5x4',
+        cat: 'atracciones',
+        catLabel: 'Castillo Inflable',
+        specTag: 'DIMENSIONES: 5 × 4 METROS',
+        title: 'Castillo Inflable Clásico (5×4 metros)',
+        price: 45,
+        priceText: '$45',
+        duration: '4 Horas',
+        img: 'img/catalogo/p04_img02.jpg',
+        desc: 'Castillo inflable compacto de 5×4 metros con deslizador frontal, ideal para salones y jardines.'
+      },
+      {
+        id: 'atrac-camaelastica',
+        cat: 'atracciones',
+        catLabel: 'Trampolín Seguro',
+        specTag: 'MALLA PERIMETRAL + ESCALERA',
+        title: 'Cama Elástica Protegida',
+        price: 45,
+        priceText: '$45',
+        duration: '4 Horas',
+        img: 'img/catalogo/p04_img01.jpg',
+        desc: 'Cama elástica circular de alto rebote con malla protectora perimetral y escalera de acceso.'
+      },
+
+      // SECCIÓN IV: ZONA GAMER, REALIDAD VIRTUAL, GYNCANA Y MESAS DE JUEGOS
+      {
+        id: 'gamer-completa',
+        cat: 'gamer_gyncana',
+        catLabel: 'Zona Gamer + VR',
+        specTag: 'REALIDAD VIRTUAL + PLAYSTATION + XBOX',
+        title: 'Zona Gamer Completa (VR + Play + Xbox)',
+        price: 150,
+        priceText: '$150',
+        duration: '4 Horas',
+        img: 'img/catalogo/p06_img02.jpg',
+        desc: 'Estación con estructura Truss iluminada, visores de Realidad Virtual 3D, consolas PlayStation y Xbox.'
+      },
+      {
+        id: 'gamer-vr',
+        cat: 'gamer_gyncana',
+        catLabel: 'Realidad Virtual 3D',
+        specTag: 'VISORES VR 3D + SILLAS GAMER',
+        title: 'Zona de Realidad Virtual Inmersiva',
+        price: 90,
+        priceText: '$90',
+        duration: '4 Horas',
+        img: 'img/catalogo/p06_img01.jpg',
+        desc: 'Experiencia 3D con visores de Realidad Virtual, butacas gamer, pantalla de vista en vivo y operador.'
+      },
+      {
+        id: 'gyncana-espuma',
+        cat: 'gamer_gyncana',
+        catLabel: 'Fiesta de Espuma',
+        specTag: 'CAÑÓN DE ESPUMA DE ALTO CAUDAL',
+        title: 'Máquina de Espuma Profesional',
+        price: 90,
+        priceText: '$90',
+        duration: '4 Horas',
+        img: 'img/catalogo/p05_img02.jpg',
+        desc: 'Cañón generador de espuma hipoalergénica para fiestas acuáticas, piscinadas y colegios.'
+      },
+      {
+        id: 'gyncana-circuito',
+        cat: 'gamer_gyncana',
+        catLabel: 'Recreación y Gyncana',
+        specTag: 'PISTA DESLIZANTE + RECREADORES',
+        title: 'Gyncana Dirigida con Circuito y Animadores',
+        price: 60,
+        priceText: '$60',
+        duration: '4 Horas',
+        img: 'img/catalogo/p05_img01.jpg',
+        desc: 'Juegos de competencia por equipos con pista deslizante, conos, retos y animación recreativa.'
+      },
+      {
+        id: 'mesas-juegos',
+        cat: 'gamer_gyncana',
+        catLabel: 'Mesas de Juegos',
+        specTag: 'FUTBOLITO • PING PONG • BÁSQUETBOL',
+        title: 'Mesas de Juegos: Futbolito, Ping Pong o Aro de Básquet',
+        price: 25,
+        priceText: '$25 c/u',
+        duration: '4 Horas',
+        img: 'img/catalogo/p07_img01.jpg',
+        desc: 'Alquiler individual ($25 cada una): mesa de futbolito profesional, mesa de ping pong o aro electrónico.'
+      }
+    ];
+
+    let activeCategory = 'todos';
+    const selectedItems = new Map();
+
+    function renderCatalog() {
+      const grid = document.getElementById('catalogGrid');
+      const items = activeCategory === 'todos'
+        ? CATALOG_ITEMS
+        : CATALOG_ITEMS.filter(it => it.cat === activeCategory);
+
+      grid.innerHTML = items.map((item, idx) => {
+        const isSelected = selectedItems.has(item.id);
+        const numStr = String(idx + 1).padStart(2, '0');
+        return `
+          <article class="metallic-card rounded-3xl overflow-hidden flex flex-col justify-between">
+            <div>
+              <div class="relative h-64 bg-[#060508] overflow-hidden group cursor-pointer" onclick="openLightbox('${item.img}', '${item.title.replace(/'/g, "\\'")}')">
+                <img src="${item.img}" alt="${item.title}" loading="lazy"
+                     class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500" />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#08070b] via-transparent to-black/35"></div>
+
+                <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full vinotinto-plate text-[10px] font-bold tracking-[0.2em] uppercase text-amber-200">
+                  ${numStr} • ${item.catLabel}
+                </span>
+
+                <span class="absolute top-3.5 right-3.5 px-3 py-1 rounded-full bg-black/80 border border-white/20 text-[10px] font-bold tracking-wider uppercase text-slate-200">
+                  ${item.duration}
+                </span>
+
+                <div class="absolute bottom-3 right-3.5 px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#120f16]/95 via-[#4a0718]/95 to-[#120f16]/95 border border-amber-400/75 shadow-xl">
+                  <span class="font-editorial font-bold text-2xl gold-metallic-text">${item.priceText}</span>
+                </div>
+              </div>
+
+              <div class="p-6 space-y-2.5">
+                <div class="text-[10px] font-bold tracking-[0.24em] uppercase text-amber-400/90">
+                  ${item.specTag}
+                </div>
+                <h3 class="font-editorial font-semibold text-2xl text-white leading-snug">
+                  ${item.title}
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                  ${item.desc}
+                </p>
+              </div>
+            </div>
+
+            <div class="px-6 pb-6 pt-2 flex items-center gap-2.5">
+              <button onclick="toggleQuoteItem('${item.id}')"
+                      class="flex-1 py-3 px-4 rounded-xl font-bold text-xs tracking-[0.16em] uppercase transition ${
+                        isSelected
+                          ? 'bg-emerald-500 text-black shadow-[0_0_20px_rgba(16,185,129,0.5)]'
+                          : 'vinotinto-plate text-amber-100 hover:brightness-125'
+                      }">
+                ${isSelected ? 'Seleccionado en Mi Evento' : '+ Agregar a Mi Evento'}
+              </button>
+              <a href="https://wa.me/584144246260?text=${encodeURIComponent('Hola Said, me interesa contratar: ' + item.title + ' (' + item.priceText + ' por 4 horas).')}"
+                 target="_blank"
+                 class="py-3 px-3.5 rounded-xl silver-pill text-xs font-bold hover:border-amber-400 transition"
+                 title="Consultar por WhatsApp">
+                WhatsApp
+              </a>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function filterCatalog(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('#catalogFilterBar .cat-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-cat') === cat);
+      });
+      renderCatalog();
+    }
+
+    function toggleQuoteItem(id) {
+      const item = CATALOG_ITEMS.find(it => it.id === id);
+      if (!item) return;
+      if (selectedItems.has(id)) selectedItems.delete(id);
+      else selectedItems.set(id, item);
+      renderCatalog();
+      updateQuoteBar();
+    }
+
+    function applyPreset(ids) {
+      selectedItems.clear();
+      ids.forEach(id => {
+        const it = CATALOG_ITEMS.find(x => x.id === id);
+        if (it) selectedItems.set(id, it);
+      });
+      renderCatalog();
+      updateQuoteBar();
+    }
+
+    function updateQuoteBar() {
+      const bar = document.getElementById('quoteBar');
+      const countBadge = document.getElementById('quoteCountBadge');
+      const totalEl = document.getElementById('quoteTotalUsd');
+
+      const count = selectedItems.size;
+      countBadge.textContent = count;
+
+      let sum = 0;
+      let hasCustom = false;
+      selectedItems.forEach(it => {
+        if (typeof it.price === 'number') sum += it.price;
+        else hasCustom = true;
+      });
+
+      totalEl.textContent = sum > 0
+        ? `$${sum}${hasCustom ? ' + Cotización a Medida' : ''}`
+        : (hasCustom ? 'Cotización a Medida' : '$0');
+
+      if (count > 0) {
+        bar.classList.remove('translate-y-40', 'opacity-0', 'pointer-events-none');
+      } else {
+        bar.classList.add('translate-y-40', 'opacity-0', 'pointer-events-none');
+      }
+    }
+
+    function clearQuote() {
+      selectedItems.clear();
+      renderCatalog();
+      updateQuoteBar();
+    }
+
+    function sendQuoteWhatsApp(target) {
+      const phone = target === 'fernando' ? '584144270723' : '584144246260';
+      const name = target === 'fernando' ? 'Fernando' : 'Said';
+      const lines = [];
+      let sum = 0;
+      selectedItems.forEach(it => {
+        lines.push(`• ${it.title} (${it.priceText})`);
+        if (typeof it.price === 'number') sum += it.price;
+      });
+      const msg = `Hola ${name}, armé mi paquete en el *Catálogo de SF Entretenimiento* (4 horas):\n\n` +
+                  lines.join('\n') +
+                  `\n\n*Total estimado:* $${sum} USD (más transporte según zona).\n¿Tienen disponibilidad para mi fecha?`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Heavy Gravitational Logo Drop Sequence ("Primero cae la S, luego la F y después Entretenimiento")
+    let dropTimers = [];
+    function triggerHeavyLogoDrop() {
+      dropTimers.forEach(t => clearTimeout(t));
+      dropTimers = [];
+
+      const stage = document.getElementById('heroAnvilStage');
+      const shockS = document.getElementById('shockS');
+      const shockF = document.getElementById('shockF');
+      const shockEnt = document.getElementById('shockEnt');
+
+      stage.classList.remove('dropping', 'shake-impact');
+      shockS.classList.remove('fire');
+      shockF.classList.remove('fire');
+      shockEnt.classList.remove('fire');
+
+      stage.classList.add('primed');
+      void stage.offsetWidth; // Force reflow
+
+      stage.classList.add('dropping');
+
+      // Impact 1: 'S' slams down at ~530ms
+      dropTimers.push(setTimeout(() => {
+        stage.classList.remove('shake-impact');
+        void stage.offsetWidth;
+        stage.classList.add('shake-impact');
+        shockS.classList.add('fire');
+      }, 520));
+
+      // Impact 2: 'F' slams down at ~1070ms
+      dropTimers.push(setTimeout(() => {
+        stage.classList.remove('shake-impact');
+        void stage.offsetWidth;
+        stage.classList.add('shake-impact');
+        shockF.classList.add('fire');
+      }, 1060));
+
+      // Impact 3: 'Entretenimiento' slams down at ~1600ms
+      dropTimers.push(setTimeout(() => {
+        stage.classList.remove('shake-impact');
+        void stage.offsetWidth;
+        stage.classList.add('shake-impact');
+        shockEnt.classList.add('fire');
+      }, 1580));
+
+      // Clean up primed class once landed so all 3D layers stay locked in place
+      dropTimers.push(setTimeout(() => {
+        stage.classList.remove('primed');
+      }, 2150));
+    }
+
+    function openLightbox(imgSrc, title) {
+      const modal = document.getElementById('lightboxModal');
+      document.getElementById('lightboxImg').src = imgSrc;
+      document.getElementById('lightboxTitle').textContent = title;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCatalog();
+      setTimeout(triggerHeavyLogoDrop, 180);
+    });
+  </script>
+</body>
+</html>

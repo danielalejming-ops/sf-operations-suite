@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1080, initial-scale=1.0">
+  <title>SF Entretenimiento - Flyer Bodas de Gala</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      width: 1080px;
+      height: 1350px;
+      margin: 0;
+      padding: 0;
+      background: #0d0214;
+      color: #ffffff;
+      overflow: hidden;
+      position: relative;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .font-cormorant { font-family: 'Cormorant Garamond', serif; }
+    .font-playfair { font-family: 'Playfair Display', serif; }
+    
+    .gold-shimmer {
+      background: linear-gradient(135deg, #FFF6E5 0%, #D4AF37 40%, #AA771C 75%, #F7E7B4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .gold-frame {
+      border: 1px solid rgba(212, 175, 55, 0.4);
+    }
+  </style>
+</head>
+<body class="flex flex-col justify-between p-20 relative">
+  
+  <!-- Full-Bleed Real Event Photography as Background -->
+  <div class="absolute inset-0 z-0">
+    <img src="../web/img/gala_fin_de_ano.jpg" alt="Boda de Gala SF" class="w-full h-full object-cover">
+    <!-- Luxury dark velvet plum vignette -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0e0214] via-[#14031d]/75 to-[#0e0214]/90"></div>
+  </div>
+
+  <!-- Exquisite Double Gold Hairline Border -->
+  <div class="absolute inset-10 gold-frame rounded-[32px] pointer-events-none z-10"></div>
+  <div class="absolute inset-12 border border-white/10 rounded-[24px] pointer-events-none z-10"></div>
+
+  <!-- Top Brand Header -->
+  <div class="relative z-20 flex items-center justify-between">
+    <div class="flex items-center gap-5">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400 via-amber-600 to-amber-800 p-0.5 shadow-2xl">
+        <div class="w-full h-full bg-[#12031a] rounded-full flex items-center justify-center">
+          <span class="font-cormorant font-bold text-2xl gold-shimmer tracking-tighter">SF</span>
+        </div>
+      </div>
+      <div>
+        <h2 class="font-montserrat font-extrabold text-xl tracking-[0.25em] text-white uppercase">SF ENTRETENIMIENTO</h2>
+        <p class="font-cormorant italic text-sm tracking-[0.3em] text-amber-300/90 font-medium">The Events Lounge • Edición Bodas de Gala</p>
+      </div>
+    </div>
+
+    <div class="px-5 py-2 rounded-full border border-amber-400/30 bg-black/40 backdrop-blur-md">
+      <span class="text-xs uppercase tracking-[0.3em] font-semibold text-amber-300">Temporada 2025 - 2026</span>
+    </div>
+  </div>
+
+  <!-- Center Editorial Headline & Content -->
+  <div class="relative z-20 my-auto max-w-3xl space-y-8">
+    
+    <div class="space-y-4">
+      <p class="text-xs uppercase tracking-[0.4em] text-amber-400 font-bold">Producción Integral Nupcial</p>
+      
+      <h1 class="font-cormorant text-6xl lg:text-7xl font-light text-white leading-[1.05]">
+        El vals de tus sueños, <br>
+        <span class="font-playfair italic font-normal gold-shimmer">sobre nubes reales.</span>
+      </h1>
+
+      <div class="w-24 h-0.5 bg-gradient-to-r from-amber-400 to-transparent"></div>
+    </div>
+
+    <p class="text-slate-200 text-lg font-light leading-relaxed max-w-2xl font-cormorant italic text-2xl">
+      "El día más importante de sus vidas merece la perfección sonora y escenográfica. Cuidamos cada segundo para que su único deber sea disfrutar."
+    </p>
+
+    <!-- Luxury Features Horizontal Ribbon -->
+    <div class="grid grid-cols-3 gap-6 pt-4 border-t border-amber-500/20">
+      <div>
+        <span class="block text-xs uppercase tracking-widest text-amber-400 font-bold mb-1">Efecto Especial</span>
+        <h4 class="font-cormorant text-xl text-white font-semibold">Dancing on the Clouds</h4>
+        <p class="text-[11px] text-slate-300 mt-1 leading-snug">Humo bajo puro de hielo seco que no se eleva ni activa alarmas.</p>
+      </div>
+
+      <div>
+        <span class="block text-xs uppercase tracking-widest text-amber-400 font-bold mb-1">Atmósfera</span>
+        <h4 class="font-cormorant text-xl text-white font-semibold">Iluminación Cálida</h4>
+        <p class="text-[11px] text-slate-300 mt-1 leading-snug">Baño perimetral de luz arquitectural que realza velas y texturas.</p>
+      </div>
+
+      <div>
+        <span class="block text-xs uppercase tracking-widest text-amber-400 font-bold mb-1">Garantía</span>
+        <h4 class="font-cormorant text-xl text-white font-semibold">Cero Cortes de Luz</h4>
+        <p class="text-[11px] text-slate-300 mt-1 leading-snug">Generadores propios para que la fiesta continúe sin interrupción.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Contact & Signature -->
+  <div class="relative z-20 pt-8 border-t border-white/10">
+    <div class="flex items-end justify-between">
+      
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-semibold">Cobertura de Élite</p>
+        <p class="text-sm font-bold text-white mt-1 tracking-wider">Valencia • Maracay • Puerto Cabello</p>
+      </div>
+
+      <!-- Verified Direct Contacts -->
+      <div class="text-right space-y-1">
+        <p class="text-[11px] uppercase tracking-[0.25em] text-amber-400 font-bold">Atención Personalizada</p>
+        <div class="flex items-center gap-6 mt-1">
+          <span class="text-base font-bold text-white tracking-wide">Said: 0414-424.62.60</span>
+          <span class="text-amber-500/60">•</span>
+          <span class="text-base font-bold text-white tracking-wide">Fernando: 0414-427.07.23</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
